@@ -16,6 +16,10 @@
 
 #### How to create a controller
 <code>php artisan make:controller AdherentController</code> for Adherent Controller
+
+#### How to create a migration table
+<code>php artisan make:migration create_adherent_table</code> for Adherent migration.
+This will create a <code>CreateAdherentTable extends Migration</code> inside root/database/migrations and it's name will be prefixed with the current date
 ## CDAFAL68
 
 La CDAFAL accueille ses adhérents pour différentes raisons, notamment les donner des formations de différentes sortes que ce soit dans les technologies, les langues,...

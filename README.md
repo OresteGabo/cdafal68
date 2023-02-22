@@ -14,6 +14,8 @@
 #### To run a project,
 <code>php artisan serve</code> which will generate a link to be opened in a navigator
 
+#### How to create a controller
+<code>php artisan make:controller AdherentController</code> for Adherent Controller
 ## CDAFAL68
 
 La CDAFAL accueille ses adhérents pour différentes raisons, notamment les donner des formations de différentes sortes que ce soit dans les technologies, les langues,...

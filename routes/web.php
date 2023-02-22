@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdherentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,10 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/adherent', function () {
-    return view('adherent','AdherentController@index');
-});
-Route::get('/adherent/{id}', function () {
-    return view('adherent','AdherentController@show');
-});
+//Route::get('/adherent', 'AdherentController@index');
+Route::get('adherent', [AdherentController::class, 'index']);
+
+
+//Route::get('/adherent/{id}','AdherentController@show');
+Route::get('adherent/{id}', [AdherentController::class, 'show']);
+

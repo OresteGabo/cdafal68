@@ -10,6 +10,6 @@ class AdherentController extends Controller
         return view('adherent');
     }
     public function show($id){
-        return view('adherent',['id'=>$id]);
+        return view('details',['id'=>$id]);
     }
 }

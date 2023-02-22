@@ -19,51 +19,134 @@ class CreateAdherentTable extends Migration
         Schema::create('adherent', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            /**
+             * Nom de famille
+             */
             $table->string('family_name');
-            $table->string('surname');
-            $table->enum('gender', array('male', 'female'));
+
+            /**
+             * Prénom
+             */
+            $table->string('first_name');
+
+            /**
+             * Civilité
+             */
+            $table->enum('gender',
+                [
+                    'male',
+                    'female'
+                ]
+            );
+
+            /**
+             * Date de naissance
+             */
             $table->date('date_of_birth');
 
-            //foreign key
-            $table->unsignedBigInteger('age_range');
-            $table->foreign('age_range')->references('id')->on('age_range')->onDelete('cascade');
+            /**
+             * Tranche d'âge
+             */
+            $table->enum('age_range',
+                [
+                    '18-25',
+                    '26-64',
+                    'Plus de 64'
+                ]
+            );
 
+            /**
+             * Numéro et nom de la rue
+             */
             $table->string('address');
+
+            /**
+             * Code postale (trouvé dans base de table des codes postaux
+             */
             $table->unsignedBigInteger('postal_code');
             $table->foreign('postal_code')->references('id')->on('postal_code')->onDelete('cascade');
 
-            $table->string('tel');
             /**
-             *
+             * Numéro de télephone
+             */
+            $table->string('tel');
+
+            /**
+             * Email
              */
             $table->string('email');
+
             /**
              * Lieu de naissance
              */
             $table->string('place_of_birth');
+
             /**
              * Nationalité
              */
             $table->string('nationality');
 
-
-
-
             /**
              * situation administrative
              */
-            $table->enum('legal_situation', array('Célibataire', 'Marié(e)','Marié(e)','Veuf(ve)','Divorcé(e)'));
+            $table->enum('legal_situation',
+                [
+                    'Acte de naissance',
+                    'Carte de séjour',
+                    'Carte d\'identité',
+                    'Passeport',
+                    'Récépissé',
+                    'Autre'
+                ]
+            );
+
+            /**
+             * Situation familiale
+             */
+            $table->enum('marital_status',
+                [
+                    'Marié(e)',
+                    'Célibataire',
+                    'Veuf(ve)',
+                    'Divorcé(e)'
+                ]
+            );
+
             /**
              * Profession
              */
-            $table->string('profession');
+            $table->enum('profession',
+                [
+                    'Salarié(e)',
+                    'Demandeur d\'emploi',
+                    'Etudiant(e)',
+                    'Retraité(e)',
+                    'Invalide',
+                    'RSA',
+                    'Bourse d\'études',
+                    'Conjoint(e) salarié(e)'
+                ]
+            );
+
             /**
              * Revenu
              */
-            $table->string('income_type');
+            $table->enum('income_type',
+                [
+                    'Salaire',
+                    'Allocation chômage',
+                    'Bourse d\'études',
+                    'Retraite',
+                    'Retraite-pension',
+                    'RSA',
+                    'Sans ressource',
+                    'Conjoint(e) Salarié(e)'
+                ]
+            );
 
             /**
-             * date d'inscription
+             * Date d'inscription
              */
             $table->date('registration_date');
 
@@ -75,20 +158,24 @@ class CreateAdherentTable extends Migration
             /**
              * Niveau d'étude
              */
-            $table->enum('education_level', array('Non scolarisé', 'Primaire','Sécondaire','Universitaire'));
+            $table->enum('education_level',
+                [
+                    'Non scolarisé',
+                    'Primaire',
+                    'Sécondaire',
+                    'Universitaire'
+                ]
+            );
 
             /**
              * Nombre d'enfants
              */
             $table->unsignedTinyInteger('number_of_children');
+
             /**
              * Date de sortie
              */
             $table->date('exit_date');
-
-
-
-
 
         });
     }

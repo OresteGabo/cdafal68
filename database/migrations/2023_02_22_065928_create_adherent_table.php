@@ -67,7 +67,7 @@ class CreateAdherentTable extends Migration
             $table->unsignedBigInteger('postal_code_id');
 
             #this code works in sqlite, but not on mysql
-            #$table->foreign('postal_code_id')->references('id')->on('postal_code')->onDelete('cascade');
+            $table->foreign('postal_code_id')->references('id')->on('postal_code')->onDelete('cascade');
 
             /**
              * Numéro de télephone

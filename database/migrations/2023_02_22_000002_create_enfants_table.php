@@ -20,6 +20,13 @@ class CreateEnfantsTable extends Migration
             $table->string('first_name');
             $table->date('date_of_birth');
             $table->boolean('is_handicapped');
+
+            /**
+             * Code postale (trouvé dans base de table des codes postaux
+             */
+            $table->unsignedBigInteger('parent_id');
+            $table->foreign('parent_id')->references('id')->on('adherent')->onDelete('cascade');
+
         });
     }
 

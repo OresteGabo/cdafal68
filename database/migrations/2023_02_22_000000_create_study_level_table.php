@@ -16,6 +16,7 @@ class CreateStudyLevelTable extends Migration
         Schema::create('study_level', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('label');
         });
     }
 

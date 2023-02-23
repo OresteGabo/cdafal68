@@ -48,13 +48,10 @@ class CreateAdherentTable extends Migration
             /**
              * Tranche d'âge
              */
-            $table->enum('age_range',
-                array(
-                    '18-25',
-                    '26-64',
-                    'Plus de 64'
-                )
-            );
+            $table->unsignedBigInteger('age_range_id');
+            $table->foreign('age_range_id')->references('id')->on('age_gap')->onDelete('cascade');
+
+
 
             /**
              * Numéro et nom de la rue
@@ -82,26 +79,29 @@ class CreateAdherentTable extends Migration
             /**
              * Lieu de naissance
              */
-            $table->string('place_of_birth');
+            $table->unsignedBigInteger('place_of_birth');
+            $table->foreign('place_of_birth')->references('id')->on('country')->onDelete('cascade');
 
             /**
              * Nationalité
              */
-            $table->string('nationality');
+            $table->unsignedBigInteger('nationality');
+            $table->foreign('nationality')->references('id')->on('country')->onDelete('cascade');
 
             /**
              * situation administrative
              */
 
-            $table->enum('legal_situation',
-                array(
+            $table->unsignedBigInteger('legal_situation');
+            $table->foreign('legal_situation')->references('id')->on('legal_situation')->onDelete('cascade');
+               /* array(
                 'Acte de naissance',
                 'Carte de séjour',
                 'Carte d identité',
                 'Passeport',
                 'Récépissé',
                 'Autre')
-            );
+            );*/
 
 
             /**

@@ -19,9 +19,7 @@ class CreatePostalCodeTable extends Migration
             $table->string('cp');
             $table->string('city');
         });
-        /*Schema::table('adherent', function (Blueprint $table) {
-            $table->foreign('postal_code_id')->references('id')->on('postal_code');
-        });*/
+
     }
 
     /**

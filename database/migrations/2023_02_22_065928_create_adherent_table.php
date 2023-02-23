@@ -34,10 +34,10 @@ class CreateAdherentTable extends Migration
              * Civilité
              */
             $table->enum('gender',
-                [
+                array(
                     'male',
                     'female'
-                ]
+                )
             );
 
             /**
@@ -49,11 +49,11 @@ class CreateAdherentTable extends Migration
              * Tranche d'âge
              */
             $table->enum('age_range',
-                [
+                array(
                     '18-25',
                     '26-64',
                     'Plus de 64'
-                ]
+                )
             );
 
             /**
@@ -64,8 +64,10 @@ class CreateAdherentTable extends Migration
             /**
              * Code postale (trouvé dans base de table des codes postaux
              */
-            $table->unsignedBigInteger('postal_code');
-            $table->foreign('postal_code')->references('id')->on('postal_code')->onDelete('cascade');
+            $table->unsignedBigInteger('postal_code_id');
+
+            #this code works in sqlite, but not on mysql
+            #$table->foreign('postal_code_id')->references('id')->on('postal_code')->onDelete('cascade');
 
             /**
              * Numéro de télephone
@@ -90,59 +92,60 @@ class CreateAdherentTable extends Migration
             /**
              * situation administrative
              */
+
             $table->enum('legal_situation',
-                [
-                    'Acte de naissance',
-                    'Carte de séjour',
-                    'Carte d\'identité',
-                    'Passeport',
-                    'Récépissé',
-                    'Autre'
-                ]
+                array(
+                'Acte de naissance',
+                'Carte de séjour',
+                'Carte d identité',
+                'Passeport',
+                'Récépissé',
+                'Autre')
             );
+
 
             /**
              * Situation familiale
              */
             $table->enum('marital_status',
-                [
+                array(
                     'Marié(e)',
                     'Célibataire',
                     'Veuf(ve)',
                     'Divorcé(e)'
-                ]
+                )
             );
 
             /**
              * Profession
              */
             $table->enum('profession',
-                [
+                array(
                     'Salarié(e)',
-                    'Demandeur d\'emploi',
+                    'Demandeur d emploi',
                     'Etudiant(e)',
                     'Retraité(e)',
                     'Invalide',
                     'RSA',
-                    'Bourse d\'études',
+                    'Bourse d études',
                     'Conjoint(e) salarié(e)'
-                ]
+                )
             );
 
             /**
              * Revenu
              */
             $table->enum('income_type',
-                [
+                array(
                     'Salaire',
                     'Allocation chômage',
-                    'Bourse d\'études',
+                    'Bourse d études',
                     'Retraite',
                     'Retraite-pension',
                     'RSA',
                     'Sans ressource',
                     'Conjoint(e) Salarié(e)'
-                ]
+                )
             );
 
             /**
@@ -159,12 +162,12 @@ class CreateAdherentTable extends Migration
              * Niveau d'étude
              */
             $table->enum('education_level',
-                [
+                array(
                     'Non scolarisé',
                     'Primaire',
                     'Sécondaire',
                     'Universitaire'
-                ]
+                )
             );
 
             /**
@@ -178,7 +181,10 @@ class CreateAdherentTable extends Migration
             $table->date('exit_date');
 
         });
+
     }
+
+
 
     /**
      * Reverse the migrations.

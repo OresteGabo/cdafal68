@@ -20,6 +20,26 @@
 #### How to create a migration table
 <code>php artisan make:migration create_adherent_table</code> for Adherent migration.
 This will create a <code>CreateAdherentTable extends Migration</code> inside root/database/migrations and it's name will be prefixed with the current date
+
+#### Foreign keys
+while making a foreign key, use the following syntax
+```PHP 
+#inside up function
+$table->foreign('postal_code_id')->references('id')->on('postal_code')->onDelete('cascade');
+```
+the code means that we are creating a foreign key in the current table (where belong the code) and that foreign key will link the property postal_code_id in the current entity with id in postal_code entity.
+Sometimes there will be issues, because the foreign key is trying to link with a table that doenst exist in the time of execution (just like in c++), 
+the solution, is to remove the linking code, and add the following in that table u want to refer to 
+example
+```PHP
+#this code will be removed in adherent table
+$table->foreign('postal_code_id')->references('id')->on('postal_code')->onDelete('cascade');
+
+#it will be replaced with in postal_code table
+Schema::table('adherent', function (Blueprint $table) {
+    $table->foreign('postal_code_id')->references('id')->on('postal_code');
+});
+```
 ## CDAFAL68
 
 La CDAFAL accueille ses adhérents pour différentes raisons, notamment les donner des formations de différentes sortes que ce soit dans les technologies, les langues,...

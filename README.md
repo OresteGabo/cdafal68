@@ -13,6 +13,7 @@
 
 #### Creating a new project we use this code
 <code>composer create-project --prefer-dist laravel/laravel [project_name]</code>
+
 #### To run a project,
 <code>php artisan serve</code> which will generate a link to be opened in a navigator
 
@@ -22,6 +23,10 @@
 #### How to create a migration table
 <code>php artisan make:migration create_adherent_table</code> for Adherent migration.
 This will create a <code>CreateAdherentTable extends Migration</code> inside root/database/migrations and it's name will be prefixed with the current date
+
+> The creation of migrations should be in a good order, to prevent the problems with foreign keys, when a foreign key refers to a table, that table has to there at the time of execution .
+> The best way to solve such problem, is either to rename migration files, and change prefixed dates, so that independent tables comes first, and the tables with foreign keys after.
+> The second option is to reference that key in itself (referred class)
 
 #### Foreign keys
 while making a foreign key, use the following syntax

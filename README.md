@@ -47,6 +47,22 @@ Schema::table('adherent', function (Blueprint $table) {
     $table->foreign('postal_code_id')->references('id')->on('postal_code');
 });
 ```
+
+### Adding a column in an existing table
+when adding a column in a table, if that table is in up state, u need to refresh <code>php artisan migrate:refresh</code> the whole database so that you put them in down state, and put them back in up state.
+The problem is that, when refreshing , you loose all your data in the whole database.
+the good way to do is to create a new table with this naming convention <code>php artisan make:migration add_property1_to_adherent_table</code>
+This will create a new table, that it's job is just to add a column to the table 
+example
+```php
+public function up()
+{
+    Schema::table('adherent', function (Blueprint $table) {
+        $table->string('propery1');
+    });
+}
+```
+and after run <code>php artisan migrate</code> to migrat the table
 ## CDAFAL68
 
 La CDAFAL accueille ses adhérents pour différentes raisons, notamment les donner des formations de différentes sortes que ce soit dans les technologies, les langues,...

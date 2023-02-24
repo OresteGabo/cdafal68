@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 class AdherentController extends Controller
 {
     public function index(){
-        return view('adherent');
+        return view('adherent.index');
     }
     public function show($id){
-        return view('details',['id'=>$id]);
+        return view('adherent.show',['id'=>$id]);
+    }
+    public function create(){
+        return view('adherent.create');
     }
 }

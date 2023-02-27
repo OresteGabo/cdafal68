@@ -27,47 +27,47 @@
                 <tr>
                     <td>Ajout d'un adhérent</td>
                     <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                    <td>0769097991</td>
+                    <td>0769097991 <button><i class="uil uil-link small-icon"></i></button></td>
                 </tr>
                 <tr>
                     <td>Suppression d'un adhérent</td>
                     <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                    <td>Manque d'activité</td>
+                    <td>Manque d'activité <button><i class="uil uil-link small-icon"></i></button></td>
                 </tr>
                 <tr>
                     <td>Paiement</td>
                     <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                    <td>Enregistrement d'un paiement Pour la formation</td>
+                    <td>Enregistrement d'un paiement Pour la formation <button><i class="uil uil-link small-icon"></i></button></td>
                 </tr>
                 <tr>
                     <td>Mise à jour d'un adherent</td>
                     <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                    <td>Changement de son adresse</td>
+                    <td>Changement de son adresse <button><i class="uil uil-link small-icon"></i></button></td>
                 </tr>
                 <tr>
                     <td>Formation</td>
                     <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                    <td>Inscription à une formation</td>
+                    <td>Inscription à une formation <button><i class="uil uil-link small-icon"></i></button></td>
                 </tr>
             <tr>
                 <td>Adhérent</td>
                 <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                <td>Enregistrement d'un enfant</td>
+                <td>Enregistrement d'un enfant <button><i class="uil uil-link small-icon"></i></button></td>
             </tr>
             <tr>
                 <td>Adhérent</td>
                 <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                <td>MAJ des information d'un enfant</td>
+                <td>MAJ des information d'un enfant <button><i class="uil uil-link small-icon"></i></button></td>
             </tr>
             <tr>
                 <td>Adhérent</td>
                 <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                <td>Enregistrement d'un enfant</td>
+                <td>Enregistrement d'un enfant <button><i class="uil uil-link small-icon"></i></button></td>
             </tr>
             <tr>
                 <td>Adhérent</td>
                 <td><?php echo randomDate('1-1-2020','1-1-2020') ?></td>
-                <td>MAJ des information d'un enfant</td>
+                <td>MAJ des information d'un enfant <button><i class="uil uil-link small-icon"></i></button></td>
             </tr>
 
 

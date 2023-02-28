@@ -46,7 +46,33 @@ body.dark{
     --table-row-bg-color:#3A3B3C;
     --active-bg-color:rgba(146, 141, 141, 0.81);
 }
+nav.sidenav{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width: 250px;
+    padding: 10px 14px;
+    background-color: var(--panel-color);
+    border-right: 1px solid var(--border-color);
+    transition: var(--tran-05);
+}
+nav .menu-items{
+    /*margin-top: 40px;*/
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+nav .logo-image img{
+    width: 50px;
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    background: #2d3748;
+}
+
+/*
 nav{
     position: fixed;
     top: 0;
@@ -108,17 +134,18 @@ nav .menu-items{
 .nav-links li a:hover:before{
     content: "";
     position: absolute;
-    /*Design of a small dot that appear on hover*/
+    /*Design of a small dot that appear on hover*
     left: -7px;
     height: 5px;
     width: 5px;
     border-radius: 50%;
     background-color: var(--primary-color);
 
-}
+}*/
 body.dark li a:hover:before{
     background-color: var(--text-color);
 }
+/*
 .menu-items li a i{
     font-size: 24px;
     min-width: 45px;
@@ -141,12 +168,12 @@ nav.close li a .link-name{
 .nav-links li a:hover i,
 .nav-links li a:hover .link-name{
     color: var(--primary-color);
-}
+}*/
 body.dark .nav-links li a:hover i,
 body.dark .nav-links li a:hover .link-name{
     color: var(--text-color);
 }
-.menu-items .logout-mode{
+/*.menu-items .logout-mode{
     padding-top: 10px;
     border-top: 1px solid var(--border-color);
 }
@@ -184,12 +211,12 @@ body.dark .nav-links li a:hover .link-name{
     background-color: var(--panel-color);
     border-radius: 50%;
     transition: var(--tran-03);
-}
+}*/
 body.dark .switch:before{
     left: 20px;
 }
 
-.dashboard{
+.maincontent{
     position: relative;
     left: 250px;
     background-color: var(--panel-color);
@@ -198,11 +225,11 @@ body.dark .switch:before{
     padding: 10px 14px;
     transition: var(--tran-05);
 }
-nav.close ~ .dashboard{
+nav.close ~ .maincontent{
     left: 73px;
     width: calc(100% - 73px);
 }
-.dashboard .top{
+.maincontent .top{
     position: fixed;
     top: 0;
     left: 250px;
@@ -215,11 +242,11 @@ nav.close ~ .dashboard{
     transition: var(--tran-05);
     z-index: 10;
 }
-nav.close ~ .dashboard .top{
+nav.close ~ .maincontent .top{
     left: 73px;
     width: calc(100% - 73px);
 }
-.dashboard .top .sidebar-toggle{
+.maincontent .top .sidebar-toggle{
     font-size: 26px;
 
     cursor: pointer;
@@ -238,7 +265,7 @@ nav.close ~ .dashboard .top{
     align-items: center;
     justify-content: center;
 }
-.dashboard .top .search-box{
+.maincontent .top .search-box{
     position: relative;
     height: 45px;
     max-width: 600px;
@@ -271,7 +298,7 @@ nav.close ~ .dashboard .top{
     width: 40px;
     border-radius: 50%;
 }
-.dashboard .dash-content{
+.maincontent .dash-content{
     padding-top: 50px;
 }
 .dash-content .title{
@@ -340,34 +367,7 @@ nav.close ~ .dashboard .top{
     align-items: center;
     width: 100%;
 }
-.collapse {
-    border-collapse: collapse;
-}
 
-.separate {
-    border-collapse: separate;
-}
-
-table {
-    display: inline-table;
-    margin: 1em;
-    min-width:80%;
-
-    color:var(--text-color);
-    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
-}
-table th{
-    background-color: var(--box2-color);
-
-}
-table th,
-table td {
-    text-align: center;
-    padding:10px 10px;
-}
-tr:nth-of-type(odd) {
-    background:var(--table-row-bg-color);
-}
 
 @media (max-width: 1000px) {
     nav{
@@ -392,19 +392,19 @@ tr:nth-of-type(odd) {
         opacity: 1;
         pointer-events: auto;
     }
-    nav ~ .dashboard{
+    nav ~ .maincontent{
         left: 73px;
         width: calc(100% - 73px);
     }
-    nav.close ~ .dashboard{
+    nav.close ~ .maincontent{
         left: 250px;
         width: calc(100% - 250px);
     }
-    nav ~ .dashboard .top{
+    nav ~ .maincontent .top{
         left: 73px;
         width: calc(100% - 73px);
     }
-    nav.close ~ .dashboard .top{
+    nav.close ~ .maincontent .top{
         left: 250px;
         width: calc(100% - 250px);
     }
@@ -447,23 +447,23 @@ tr:nth-of-type(odd) {
         opacity: 0;
         pointer-events: none;
     }
-    nav ~ .dashboard{
+    nav ~ .maincontent{
         left: 0;
         width: 100%;
     }
-    nav.close ~ .dashboard{
+    nav.close ~ .maincontent{
         left: 73px;
         width: calc(100% - 73px);
     }
-    nav ~ .dashboard .top{
+    nav ~ .maincontent .top{
         left: 0;
         width: 100%;
     }
-    nav.close ~ .dashboard .top{
+    nav.close ~ .maincontent .top{
         left: 0;
         width: 100%;
     }
-    .dashboard .top .sidebar-toggle{
+    .maincontent .top .sidebar-toggle{
         left:3px;
     }
 }

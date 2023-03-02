@@ -1,4 +1,4 @@
-<div class="{{$title}}">
-    <i class="uil uil-tachometer-fast-alt"></i>
-    <span class="text">Liens rapide</span>
+<div class="title">
+    <i class="{{$icon}}"></i>
+    <span class="text">{{$label}}</span>
 </div>

@@ -3,7 +3,22 @@
 <p>This is adherents index</p>
 @endsection
 
-@section('recent_activities')
+@section('quick_links')
+    <div class="overview">
+        <div class="title">
+            <i class="uil uil-tachometer-fast-alt"></i>
+            <span class="text">Liens rapide</span>
+        </div>
+
+        <div class="boxes">
+            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-user','label'=>'----','data'=>''])
+            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-user-plus','label'=>'Ajouter','data'=>''])
+            @include('layouts.heading.box',['box_number'=>'3','icon'=>'uil uil-external-link-alt','label'=>'Autre actions','data'=>''])
+        </div>
+    </div>
+@endsection
+
+@section('more_data')
     <div class="activity">
         <div class="title">
             <i class="uil uil-user"></i>

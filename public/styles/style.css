@@ -330,6 +330,9 @@ nav.close ~ .maincontent .top{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.dash-content .boxes a{
+    text-decoration: none;
+}
 .dash-content .boxes .box{
     display: flex;
     flex-direction: column;

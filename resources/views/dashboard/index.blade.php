@@ -4,10 +4,7 @@
 @endsection
 @section('quick_links')
     <div class="overview">
-        <div class="title">
-            <i class="uil uil-tachometer-fast-alt"></i>
-            <span class="text">Liens rapide</span>
-        </div>
+        @include('layouts.heading.content_title',['icon'=>'uil uil-tachometer-fast-alt','label'=>'Liens rapide'])
 
         <div class="boxes">
             @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-database','label'=>'Adhérents','data'=>'268'])
@@ -18,12 +15,7 @@
 @endsection
 @section('more_data')
     <div class="activity">
-        <div class="title">
-            <i class="uil uil-clock-three"></i>
-            <span class="text">Activités recentes</span>
-        </div>
-
-
+        @include('layouts.heading.content_title',['icon'=>'uil uil-clock-three','label'=>'Activités recentes'])
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>

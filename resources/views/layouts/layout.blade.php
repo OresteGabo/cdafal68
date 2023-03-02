@@ -10,8 +10,8 @@
     <!--<link rel="stylesheet" href="resources/css/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <!-- <link rel="stylesheet" href="styles/sidenav.css">
-     <link rel="stylesheet" href="styles/form.css">-->
+     <link rel="stylesheet" href="/styles/sidenav.css">
+     <!--<link rel="stylesheet" href="styles/form.css">-->
 
     <link rel="stylesheet" href="/styles/style.css">
 
@@ -41,41 +41,15 @@
         <!--<div class="float-left">-->
     <div class="flex menu-items">
         <ul class="">
-            <li><a href="#">
-                    <i class="uil uil-estate"></i>
-                    <span class="link-name">Dashboard</span>
-                </a></li>
-            <li><a href="#">
-
-                    <i class="uil uil-database"></i>
-                    <span class="link-name">BDD</span>
-                </a></li>
-            <li><a href="#">
-                    <i class="uil uil-bell"></i>
-                    <span class="link-name">Notifications</span>
-                </a></li>
-            <li><a href="#">
-                    <i class="uil uil-constructor"></i>
-                    <span class="link-name">Activités</span>
-                </a></li>
-
-            <li><a href="#">
-                    <i class="uil uil-image"></i>
-                    <span class="link-name">Media</span>
-                </a></li>
+            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-estate','label'=>"Dashboard"])
+            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-database','label'=>"BDD"])
+            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-bell','label'=>"Notifications"])
+            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-constructor','label'=>"Activités"])
+            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-image','label'=>"Media"])
         </ul>
         <ul class="logout-mode">
-            <li><a href="#">
-                    <i class="uil uil-setting"></i>
-                    <span class="link-name">Paramètres</span>
-                </a></li>
-
-            <li><a href="#">
-                    <i class="uil uil-signout"></i>
-                    <span class="link-name">Logout</span>
-                </a></li>
-
-
+            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-setting','label'=>"Paramètres"])
+            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-signout','label'=>"Déconnection"])
             <li class="mode">
                 <a href="#">
                     <i class="uil uil-moon"></i>
@@ -94,23 +68,19 @@
     <div class="top">
         <i class="uil uil-angle-left-b sidebar-toggle"></i>
 
-        <div class="search-box">
+        <!--<div class="search-box">
             <i class="uil uil-search"></i>
             <input type="text" placeholder="Search here...">
-        </div>
+        </div>-->
 
         <!--<img src="images/profile.jpg" alt="">-->
     </div>
 
     <div class="dash-content">
-
         @yield('quick_links')
         @yield('more_data')
-
     </div>
 </section>
-@yield('content')
-
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

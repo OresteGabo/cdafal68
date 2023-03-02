@@ -103,31 +103,9 @@
     </div>
 
     <div class="dash-content">
-        <div class="overview">
-            <div class="title">
-                <i class="uil uil-tachometer-fast-alt"></i>
-                <span class="text">Liens rapide</span>
-            </div>
 
-            <div class="boxes">
-                <div class="box box1">
-                    <i class="uil uil-database"></i>
-                    <span class="text">Adhérents</span>
-                    <span class="number">268</span>
-                </div>
-                <div class="box box2">
-                    <i class="uil uil-kid"></i>
-                    <span class="text">Enfants</span>
-                    <span class="number">10</span>
-                </div>
-                <div class="box box3">
-                    <i class="uil uil-euro-circle"></i>
-                    <span class="text">Cotisations(2023)</span>
-                    <span class="number">10,120</span>
-                </div>
-            </div>
-        </div>
-        @yield('recent_activities')
+        @yield('quick_links')
+        @yield('more_data')
 
     </div>
 </section>

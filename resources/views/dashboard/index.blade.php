@@ -2,8 +2,21 @@
 @section('content')
     <p>This is adherents index</p>
 @endsection
+@section('quick_links')
+    <div class="overview">
+        <div class="title">
+            <i class="uil uil-tachometer-fast-alt"></i>
+            <span class="text">Liens rapide</span>
+        </div>
 
-@section('recent_activities')
+        <div class="boxes">
+            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-database','label'=>'Adhérents','data'=>'268'])
+            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-kid','label'=>'Enfants','data'=>'10'])
+            @include('layouts.heading.box',['box_number'=>'3','icon'=>'uil uil-database','label'=>'Adhérents','data'=>'268'])
+        </div>
+    </div>
+@endsection
+@section('more_data')
     <div class="activity">
         <div class="title">
             <i class="uil uil-clock-three"></i>
@@ -56,4 +69,5 @@
         </nav>
 
 @endsection
+
 

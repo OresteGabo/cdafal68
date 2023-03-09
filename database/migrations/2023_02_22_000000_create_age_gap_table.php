@@ -15,7 +15,7 @@ class CreateAgeGapTable extends Migration
     {
         Schema::create('age_gap', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('data');
         });
     }
 

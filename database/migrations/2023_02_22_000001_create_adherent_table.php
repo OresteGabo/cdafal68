@@ -18,7 +18,6 @@ class CreateAdherentTable extends Migration
     {
         Schema::create('adherent', function (Blueprint $table) {
             $table->id();
-            /*$table->timestamps();*/
 
             /**
              * Nom de famille
@@ -49,7 +48,7 @@ class CreateAdherentTable extends Migration
              * Tranche d'âge
              */
             $table->unsignedBigInteger('age_gap_id');
-            $table->foreign('age_range_id')->references('id')->on('age_gap')->onDelete('cascade');
+            $table->foreign('age_gap_id')->references('id')->on('age_gap')->onDelete('cascade');
 
 
 

@@ -266,7 +266,7 @@ class AdherentController extends Controller
             array('label'=>'divorced','value'=>'Divorcé(e)'),
             array('label'=>'widowed','value'=>'Veuf(ve)'),
         );
-        $revenues =array(
+        $income_types =array(
             array('value'=>'salary','label'=>'Salarié(e)'),
             array('value'=>'job_seeker','label'=>'Demandeur d\'emploi'),
             array('value'=>'student','label'=>'Etudiant(e)'),
@@ -283,6 +283,6 @@ class AdherentController extends Controller
             array('value'=>'other','label'=>'plus de 64 ans')
         );
 
-        return view('adherent.create',['countries'=>$countries,'marital_statuses'=>$marital_statuses,'revenues'=>$revenues,'age_gaps'=>$age_gaps]);
+        return view('adherent.create',['countries'=>$countries,'marital_statuses'=>$marital_statuses,'$income_types'=>$income_types,'age_gaps'=>$age_gaps]);
     }
 }

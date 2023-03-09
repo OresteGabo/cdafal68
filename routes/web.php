@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdherentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgeGapController;
+use App\Http\Controllers\KidsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,6 @@ Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('login',[AuthController::class, 'index']);
 Route::get('signup',[AuthController::class, 'signup']);
 Route::get('agegap',[AgeGapController::class, 'index']);
+Route::get('kids',[KidsController::class, 'index']);
+Route::get('kids/create',[KidsController::class, 'create']);
+Route::get('kids/{id}',[KidsController::class, 'show']);

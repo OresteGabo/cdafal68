@@ -15,7 +15,7 @@ class CreateActivityTable extends Migration
     {
         Schema::create('activity', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('label');
         });
     }
 

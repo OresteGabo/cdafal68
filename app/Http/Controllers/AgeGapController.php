@@ -12,6 +12,6 @@ class AgeGapController extends Controller
     //
     public function index(){
         $agegap = DB::table('age_gap')->get();
-        return view('agegap',['agegaps'=>$agegap]);
+        return view('agegap.index',['agegaps'=>$agegap]);
     }
 }

@@ -1,4 +1,4 @@
-
+/*
 nav.sidenav{
     position:fixed;
     top:0;
@@ -9,7 +9,7 @@ nav.sidenav{
     background-color: var(--panel-color);
     border-right: 1px solid var(--border-color);
     transition: var(--tran-05);
-}
+}*/
 nav.sidenav .menu-items{
     /*margin-top: 40px;*/
     height: calc(100% - 90px);

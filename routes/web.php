@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdherentController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AgeGapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::get('adherent', [AdherentController::class, 'index']);
 
 
 //Route::get('/adherent/{id}','AdherentController@show');
+
+Route::get('adherent/create', [AdherentController::class, 'create']);
+
 Route::get('adherent/{id}', [AdherentController::class, 'show']);
 
 //
@@ -35,3 +39,4 @@ Route::get('dashboard', [DashboardController::class, 'index']);
 //
 Route::get('login',[AuthController::class, 'index']);
 Route::get('signup',[AuthController::class, 'signup']);
+Route::get('agegap',[AgeGapController::class, 'index']);

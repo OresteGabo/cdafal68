@@ -18,7 +18,7 @@ class CreateAdherentTable extends Migration
     {
         Schema::create('adherent', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            /*$table->timestamps();*/
 
             /**
              * Nom de famille
@@ -48,7 +48,7 @@ class CreateAdherentTable extends Migration
             /**
              * Tranche d'âge
              */
-            $table->unsignedBigInteger('age_range_id');
+            $table->unsignedBigInteger('age_gap_id');
             $table->foreign('age_range_id')->references('id')->on('age_gap')->onDelete('cascade');
 
 
@@ -62,9 +62,12 @@ class CreateAdherentTable extends Migration
              * Code postale (trouvé dans base de table des codes postaux
              */
             $table->unsignedBigInteger('postal_code_id');
-
-            #this code works in sqlite, but not on mysql
             $table->foreign('postal_code_id')->references('id')->on('postal_code')->onDelete('cascade');
+
+            /**
+             * QPV (Quartier politique de la ville)
+             */
+            $table->boolean('QPV');
 
             /**
              * Numéro de télephone
@@ -85,68 +88,31 @@ class CreateAdherentTable extends Migration
             /**
              * Nationalité
              */
-            $table->unsignedBigInteger('nationality');
-            $table->foreign('nationality')->references('id')->on('country')->onDelete('cascade');
+            $table->unsignedBigInteger('citizenship');
+            $table->foreign('citizenship')->references('id')->on('country')->onDelete('cascade');
 
             /**
              * situation administrative
              */
 
-            $table->unsignedBigInteger('legal_situation');
-            $table->foreign('legal_situation')->references('id')->on('legal_situation')->onDelete('cascade');
-               /* array(
-                'Acte de naissance',
-                'Carte de séjour',
-                'Carte d identité',
-                'Passeport',
-                'Récépissé',
-                'Autre')
-            );*/
+            $table->unsignedBigInteger('legal_situation_id');
+            $table->foreign('legal_situation_id')->references('id')->on('legal_situation')->onDelete('cascade');
 
 
             /**
              * Situation familiale
              */
-            $table->enum('marital_status',
-                array(
-                    'Marié(e)',
-                    'Célibataire',
-                    'Veuf(ve)',
-                    'Divorcé(e)'
-                )
-            );
+            $table->unsignedBigInteger('marital_status_id');
+            $table->foreign('marital_status_id')->references('id')->on('marital_status')->onDelete('cascade');
 
-            /**
-             * Profession
-             */
-            $table->enum('profession',
-                array(
-                    'Salarié(e)',
-                    'Demandeur d emploi',
-                    'Etudiant(e)',
-                    'Retraité(e)',
-                    'Invalide',
-                    'RSA',
-                    'Bourse d études',
-                    'Conjoint(e) salarié(e)'
-                )
-            );
+
 
             /**
              * Revenu
              */
-            $table->enum('income_type',
-                array(
-                    'Salaire',
-                    'Allocation chômage',
-                    'Bourse d études',
-                    'Retraite',
-                    'Retraite-pension',
-                    'RSA',
-                    'Sans ressource',
-                    'Conjoint(e) Salarié(e)'
-                )
-            );
+            $table->unsignedBigInteger('income_type_id');
+            $table->foreign('income_type_id')->references('id')->on('income_type')->onDelete('cascade');
+
 
             /**
              * Date d'inscription
@@ -161,24 +127,21 @@ class CreateAdherentTable extends Migration
             /**
              * Niveau d'étude
              */
-            $table->enum('education_level',
-                array(
-                    'Non scolarisé',
-                    'Primaire',
-                    'Sécondaire',
-                    'Universitaire'
-                )
-            );
+            $table->unsignedBigInteger('education_level_id');
+            $table->foreign('education_level_id')->references('id')->on('education_level')->onDelete('cascade');
 
-            /**
-             * Nombre d'enfants
-             */
-            $table->unsignedTinyInteger('number_of_children');
 
             /**
              * Date de sortie
              */
             $table->date('exit_date');
+
+            /**
+             * CIR(contrat d'integration républiquain)
+             */
+            $table->boolean('CIR');
+
+
 
         });
 

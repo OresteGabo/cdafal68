@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -13,6 +14,8 @@ class DashboardController extends Controller
         return $random_Date;
     }
     public function index(){
+        /*
+        $activities = DB::table('activity')->get();*/
         $activities=[
             ['intitule'=>'Ajout d\'un adhérent','date'=>$this->randomDate(),'description'=>'0769097991'],
             ['intitule'=>'Suppression d\'un adhérent','date'=>$this->randomDate(),'description'=>'Manque d\'activité'],

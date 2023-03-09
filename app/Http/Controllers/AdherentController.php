@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Adherent;
+use Illuminate\Support\Facades\DB;
 
 class AdherentController extends Controller
 {
@@ -29,6 +30,7 @@ class AdherentController extends Controller
             ['intitule'=>'Adhérent','date'=>$this->randomDate(),'description'=>'Enregistrement d\'un enfant'],
             ['intitule'=>'Adhérent','date'=>$this->randomDate(),'description'=>'MAJ des information d\'un enfant']
         ];
+        $adherents = DB::table('adherent')->get();
         //$adherents=Adherent::all();
         return view('adherent.index',['activities'=>$activities]);
     }
@@ -36,7 +38,8 @@ class AdherentController extends Controller
         return view('adherent.show',['id'=>$id]);
     }
     public function create(){
-        $countries = array(
+        $countries = DB::table('coutry')->get();
+        /*$countries = array(
             array('value'=>'AFG','label'=>'Afghanistan'),
             array('value'=>'ALB','label'=>'Albanie'),
             array('value'=>'DZA','label'=>'Algérie'),
@@ -259,14 +262,16 @@ class AdherentController extends Controller
             array('value'=>'YEM','label'=>'Yémen'),
             array('value'=>'ZMB','label'=>'Zambie'),
             array('value'=>'ZWE','label'=>'Zimbabwe')
-        );
-        $marital_statuses=array(
+        );*/
+
+        $marital_statuses= DB::table('marital_status')->get();
+        /*$marital_statuses=array(
             array('label'=>'single','value'=>'Célibataire'),
             array('label'=>'married','value'=>'Marié(e)'),
             array('label'=>'divorced','value'=>'Divorcé(e)'),
             array('label'=>'widowed','value'=>'Veuf(ve)'),
-        );
-        $income_types =array(
+        );*/
+        /*$income_types =array(
             array('value'=>'salary','label'=>'Salarié(e)'),
             array('value'=>'job_seeker','label'=>'Demandeur d\'emploi'),
             array('value'=>'student','label'=>'Etudiant(e)'),
@@ -276,12 +281,15 @@ class AdherentController extends Controller
             array('value'=>'rsa','label'=>'RSA'),
             array('value'=>'scholarship','label'=>'Bourse d\'études'),
             array('value'=>'partner','label'=>'Conjoint(e) salarié(e)'),
-        );
-        $age_gaps=array(
+        );*/
+        $income_types=DB::table('income_type')->get();
+
+        $age_gaps=DB::table('age_gap')->get();
+        /*$age_gaps=array(
             array('value'=>'18_25','label'=>'de 18 à 25 ans'),
             array('value'=>'26_64','label'=>'de 26 à 64 ans'),
             array('value'=>'other','label'=>'plus de 64 ans')
-        );
+        );*/
 
         return view('adherent.create',['countries'=>$countries,'marital_statuses'=>$marital_statuses,'$income_types'=>$income_types,'age_gaps'=>$age_gaps]);
     }

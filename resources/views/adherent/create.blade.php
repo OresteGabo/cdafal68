@@ -96,7 +96,7 @@
 
                         <select name="income-type" id="income-type" class="form-select" required>
                             <option value="">Sélectionnez le type de révenus</option>
-                            @include('layouts.selects.options',['data_array'=>$revenues])
+                            @include('layouts.selects.options',['data_array'=>$income_types])
                         </select>
                         <div id="income-type-error-msg" class="invalid-feedback"></div>
                     </div>

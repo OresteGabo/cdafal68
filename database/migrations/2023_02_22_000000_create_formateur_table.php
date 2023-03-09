@@ -15,7 +15,6 @@ class CreateFormateurTable extends Migration
     {
         Schema::create('formateur', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('family_name');
             $table->string('first_name');
             $table->string('email');

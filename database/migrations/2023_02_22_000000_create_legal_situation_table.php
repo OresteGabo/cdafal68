@@ -15,7 +15,6 @@ class CreateLegalSituationTable extends Migration
     {
         Schema::create('legal_situation', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('label');
         });
     }

@@ -10,102 +10,19 @@
                 <form method="post">
                     @csrf
 
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name:</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="name" class="form-label"><i class="fas fa-user"></i> Nom de famille:</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
-                        <div id="name-error-msg" class="invalid-feedback"></div>
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="surname" class="form-label">Prénom:</label>
-                        <input type="text" name="surname" id="surname" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="date-of-birth" class="form-label">Date de naissance:</label>
-                        <input type="date" name="date_of_birth" id="date-of-birth" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="postal-code" class="form-label">Code postale:</label>
-                        <input type="text" name="postal_code" id="postal-code" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="age-gap" class="form-label">Tranche d'age:</label>
-                        <select name="age_gap" id="age-gap" class="form-select" required>
-                            <option value="">Choississez</option>
-                            <!--@include('layouts.selects.options',['data_array'=>$age_gaps])-->
-                        </select>
-                        <div id="age-gap-error-msg" class="invalid-feedback"></div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="tel" class="form-label">Téléphone:</label>
-                        <input type="tel" name="tel" id="tel" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input type="email" name="email" id="email" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="place-of-birth" class="form-label">Lieu de naissance:</label>
-                        <input type="text" name="place_of_birth" id="place-of-birth" class="form-control" required>
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="place-of-birth" class="form-label">Lieu de naissance:</label>
-                        <select name="place-of-birth" id="place-of-birth" class="form-select" required>
-                            <option value="">Sélectionnez un pays</option>
-                            <!--@include('layouts.selects.options',['data_array'=>$countries])-->
-                        </select>
-                        <div id="place-of-birth-error-msg" class="invalid-feedback"></div>
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="citizenship" class="form-label">Nationalité:</label>
-                        <select name="citizenship" id="citizenship" class="form-select" required>
-                            <option value="">Sélectionnez un pays</option>
-                            @include('layouts.selects.options',['data_array'=>$countries])
-                        </select>
-                        <div id="citizenship-error-msg" class="invalid-feedback"></div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="marital-status" class="form-label">Situation familiale:</label>
-                        <select name="marital_status" id="marital-status" class="form-select" required>
-                            <option value="">Choississez</option>
-                            @include('layouts.selects.options',['data_array'=>$marital_statuses])
-                        </select>
-                        <div id="marital-status-error-msg" class="invalid-feedback"></div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="income-type" class="form-label">Revenu:</label>
-
-                        <select name="income-type" id="income-type" class="form-select" required>
-                            <option value="">Sélectionnez le type de révenus</option>
-                            @include('layouts.selects.options',['data_array'=>$income_types])
-                        </select>
-                        <div id="income-type-error-msg" class="invalid-feedback"></div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="registration-date" class="form-label">Date d'adhésion:</label>
-                        <input type="date" name="registration_date" id="registration-date" class="form-control"
-                               required>
-                    </div>
+                    @include('layouts.formcontrols.input',['name'=>'name','label'=>'Nom de famille','required'=>'required','type'=>'text'])
+                    @include('layouts.formcontrols.input',['name'=>'surname','label'=>'Prénom','required'=>'required','type'=>'text'])
+                    @include('layouts.formcontrols.input',['name'=>'surname','label'=>'date_of_birth','required'=>'required','type'=>'date'])
+                    @include('layouts.formcontrols.input',['name'=>'postal_code','label'=>'Code postale','required'=>'required','type'=>'text'])
+                    @include('layouts.formcontrols.input',['name'=>'tel','label'=>'Téléphone','required'=>'required','type'=>'tel'])
+                    @include('layouts.formcontrols.input',['name'=>'email','label'=>'Email','required'=>'required','type'=>'email'])
+                    @include('layouts.formcontrols.input',['name'=>'postal_code','label'=>'Code postale','required'=>'required','type'=>'text'])
+                    @include('layouts.formcontrols.select',['name'=>'age_gap','label'=>'Tranche d\'age','required'=>'required','data_array'=>$age_gaps])
+                    @include('layouts.formcontrols.select',['name'=>'place_of_birth','label'=>'Lieu de naissance','required'=>'required','data_array'=>$countries])
+                    @include('layouts.formcontrols.select',['name'=>'citizenship','label'=>'Nationalité','required'=>'required','data_array'=>$countries])
+                    @include('layouts.formcontrols.select',['name'=>'marital_status','label'=>'Situation familiale','required'=>'required','data_array'=>$marital_statuses])
+                    @include('layouts.formcontrols.select',['name'=>'income_type','label'=>'Revenu','required'=>'required','data_array'=>$income_types])
+                    @include('layouts.formcontrols.input',['name'=>'registration_date','label'=>'Date d\'adhésion','required'=>'required','type'=>'date'])
 
                     <div class="mb-3 text-center">
                         <button type="submit" class="btn btn-primary">Créer adhérent</button>

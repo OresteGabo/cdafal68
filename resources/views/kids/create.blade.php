@@ -9,20 +9,11 @@
             <div class="col-md-6">
                 <form method="post">
                     @csrf
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="surname">Surname:</label>
-                        <input type="text" id="surname" name="surname" class="form-control" required>
-                    </div>
+                    @include('layouts.formcontrols.input',['name'=>'name','label'=>'Nom de famille','required'=>'required','type'=>'text'])
+                    @include('layouts.formcontrols.input',['name'=>'surname','label'=>'Prénom','required'=>'required','type'=>'text'])
+                    @include('layouts.formcontrols.input',['name'=>'surname','label'=>'date_of_birth','required'=>'required','type'=>'date'])
 
-                    <div class="form-group">
-                        <label for="dob">Date of Birth:</label>
-                        <input type="date" id="dob" name="dob" class="form-control" required>
-                    </div>
 
                     <div class="form-check">
                         <input type="checkbox" id="isHandicapped" name="isHandicapped" class="form-check-input">

@@ -37,8 +37,9 @@ class AdherentController extends Controller
     public function show($id){
         return view('adherent.show',['id'=>$id]);
     }
+
     public function create(){
-        $countries = DB::table('coutry')->get();
+        $countries = DB::table('country')->get();
         /*$countries = array(
             array('value'=>'AFG','label'=>'Afghanistan'),
             array('value'=>'ALB','label'=>'Albanie'),
@@ -284,13 +285,16 @@ class AdherentController extends Controller
         );*/
         $income_types=DB::table('income_type')->get();
 
-        $age_gaps=DB::table('age_gap')->get();
-        /*$age_gaps=array(
+        ///TODO Replace this data with database data
+        /*$age_gaps=DB::table('age_gap')->get();*/
+        $age_gaps=array(
             array('value'=>'18_25','label'=>'de 18 à 25 ans'),
             array('value'=>'26_64','label'=>'de 26 à 64 ans'),
             array('value'=>'other','label'=>'plus de 64 ans')
-        );*/
+        );
 
-        return view('adherent.create',['countries'=>$countries,'marital_statuses'=>$marital_statuses,'$income_types'=>$income_types,'age_gaps'=>$age_gaps]);
+
+
+        return view('adherent.create',['countries'=>$countries,'marital_statuses'=>$marital_statuses,'income_types'=>$income_types,'age_gaps'=>$age_gaps]);
     }
 }

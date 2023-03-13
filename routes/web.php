@@ -6,6 +6,7 @@ use App\Http\Controllers\AdherentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgeGapController;
 use App\Http\Controllers\KidsController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,24 +18,17 @@ use App\Http\Controllers\KidsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
 Route::get('/login', function () {
     return view('login');
 });
-//Route::get('/adherent', 'AdherentController@index');
-Route::get('adherent', [AdherentController::class, 'index'])->name('adherent.index');
 
+Route::resource('adherent',AdherentController::class);
+Route::resource('home',HomeController::class);
 
-//Route::get('/adherent/{id}','AdherentController@show');
-
-Route::get('adherent/create', [AdherentController::class, 'create'])->name('adherent.create');
-
-Route::get('adherent/{id}', [AdherentController::class, 'show'])->name('adherent.show');
-
-//
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 //

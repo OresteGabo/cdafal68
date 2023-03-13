@@ -25,22 +25,22 @@ Route::get('/login', function () {
     return view('login');
 });
 //Route::get('/adherent', 'AdherentController@index');
-Route::get('adherent', [AdherentController::class, 'index']);
+Route::get('adherent', [AdherentController::class, 'index'])->name('adherent.index');
 
 
 //Route::get('/adherent/{id}','AdherentController@show');
 
-Route::get('adherent/create', [AdherentController::class, 'create']);
+Route::get('adherent/create', [AdherentController::class, 'create'])->name('adherent.create');
 
-Route::get('adherent/{id}', [AdherentController::class, 'show']);
-
-//
-Route::get('dashboard', [DashboardController::class, 'index']);
+Route::get('adherent/{id}', [AdherentController::class, 'show'])->name('adherent.show');
 
 //
-Route::get('login',[AuthController::class, 'index']);
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+//
+Route::get('login',[AuthController::class, 'index'])->name('');
 Route::get('signup',[AuthController::class, 'signup']);
 Route::get('agegap',[AgeGapController::class, 'index']);
-Route::get('kids',[KidsController::class, 'index']);
-Route::get('kids/create',[KidsController::class, 'create']);
-Route::get('kids/{id}',[KidsController::class, 'show']);
+Route::get('kids',[KidsController::class, 'index'])->name('kids.index');
+Route::get('kids/create',[KidsController::class, 'create'])->name('kids.create');
+Route::get('kids/{id}',[KidsController::class, 'show'])->name('kids.show');

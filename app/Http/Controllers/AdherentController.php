@@ -3,22 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Adherent;
 use Illuminate\Support\Facades\DB;
+
+
 
 class AdherentController extends Controller
 {
-
-    // THIS PHP FUNCTION WILL BE REMOVED, AND REAL DATA WILL BE INSERTED -->
-
-            public function randomDate()
-            {
-                $timestamp = rand( strtotime("Jan 01 2020"), strtotime("May 01 2023") );
-                $random_Date = date("d.m.Y", $timestamp );
-                return $random_Date;
-            }
-
-    public function index(){
+    private function randomDate()
+    {
+        $timestamp = rand( strtotime("Jan 01 2020"), strtotime("May 01 2023") );
+        $random_Date = date("d.m.Y", $timestamp );
+        return $random_Date;
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
         $activities=[
             ['intitule'=>'Ajout d\'un adhérent','date'=>$this->randomDate(),'description'=>'0769097991'],
             ['intitule'=>'Suppression d\'un adhérent','date'=>$this->randomDate(),'description'=>'Manque d\'activité'],
@@ -34,10 +38,12 @@ class AdherentController extends Controller
         //$adherents=Adherent::all();
         return view('adherent.index',['activities'=>$activities]);
     }
-    public function show($id){
-        return view('adherent.show',['id'=>$id]);
-    }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
     public function create(){
         $countries = DB::table('country')->get();
         /*$countries = array(
@@ -293,8 +299,64 @@ class AdherentController extends Controller
             array('value'=>'other','label'=>'plus de 64 ans')
         );
 
-
-
         return view('adherent.create',['countries'=>$countries,'marital_statuses'=>$marital_statuses,'income_types'=>$income_types,'age_gaps'=>$age_gaps]);
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+        return view('adherent.show',['id'=>$id]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }
+

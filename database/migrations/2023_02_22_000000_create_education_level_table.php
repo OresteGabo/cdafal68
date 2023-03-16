@@ -15,7 +15,6 @@ class CreateEducationLevelTable extends Migration
     {
         Schema::create('education_level', function (Blueprint $table) {
             $table->id();
-            $table->string('value');
             $table->string('label');
         });
     }

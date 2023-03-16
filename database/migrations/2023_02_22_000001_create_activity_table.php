@@ -16,6 +16,9 @@ class CreateActivityTable extends Migration
         Schema::create('activity', function (Blueprint $table) {
             $table->id();
             $table->string('label');
+
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('group')->onDelete('cascade');
         });
     }
 

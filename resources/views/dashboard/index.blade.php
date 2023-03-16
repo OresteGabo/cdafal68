@@ -1,7 +1,5 @@
 @extends('layouts.layout')
-@section('content')
-    <p>This is adherents index</p>
-@endsection
+
 @section('quick_links')
     <div class="overview">
         @include('layouts.heading.content_title',['icon'=>'uil uil-tachometer-fast-alt','label'=>'Liens rapide'])
@@ -13,7 +11,7 @@
         </div>
     </div>
 @endsection
-@section('more_data')
+@section('content')
     <div class="activity">
         @include('layouts.heading.content_title',['icon'=>'uil uil-clock-three','label'=>'Activités recentes'])
         <table class="table table-striped table-bordered table-hover">

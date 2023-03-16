@@ -24,7 +24,7 @@ class CreateEnfantsTable extends Migration
              * Code postale (trouvé dans base de table des codes postaux
              */
             $table->unsignedBigInteger('parent_id');
-            $table->foreign('parent_id')->references('id')->on('adherent')->onDelete('cascade');
+            $table->foreign('parent_id')->references('id')->on('adherents')->onDelete('cascade');
 
         });
     }

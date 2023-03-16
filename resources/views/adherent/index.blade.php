@@ -1,21 +1,19 @@
 @extends('layouts.layout')
-@section('content')
-<p>This is adherents index</p>
-@endsection
+
 
 @section('quick_links')
     <div class="overview">
         @include('layouts.heading.content_title',['icon'=>'uil uil-tachometer-fast-alt','label'=>'Liens rapide'])
 
         <div class="boxes">
-            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-user','label'=>'----','data'=>''])
-            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-user-plus','label'=>'Ajouter','data'=>''])
+            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-user','label'=>count($adherents).' '.'Adherents','data'=>''])
+            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-user-plus','label'=>'Ajouter','data'=>'','url'=>route('adherent.create')])
             @include('layouts.heading.box',['box_number'=>'3','icon'=>'uil uil-external-link-alt','label'=>'Autre actions','data'=>''])
         </div>
     </div>
 @endsection
 
-@section('more_data')
+@section('content')
     <div class="activity">
         @include('layouts.heading.content_title',['icon'=>'uil uil-user','label'=>'Liste des adhérents'])
 
@@ -23,31 +21,19 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">intituléss
-                    <!--<label>
-                        <input type="radio" id="last" name="Ppub" value="last"> intitule
-                    </label>-->
-
-                    <!--<label for="selectRange">Intitule</label><select id="selectRange" value="" onchange="radioCheck();">
-                        <option value="">no filtre<i class="uil uil-filter"></i></option>
-                        <option value="20181220-20190120"><input type="radio" id="dewey1" name="drone" value="dewey"></option>
-                        <option value="20180720-20190120"><input type="radio" id="dewey2" name="drone" value="dewey"></option>
-                        <option value="20180120-20190120"><input type="radio" id="dewey3" name="drone" value="dewey"></option>
-                    </select>-->
-
-                    <!--<button></button>-->
+                <th scope="col">Nom
                 </th>
-                <th scope="col">date<button><i class="uil uil-sort"></i></button></th>
-                <th scope="col">description</th>
+                <th scope="col">Prénom<button><i class="uil uil-sort"></i></button></th>
+                <th scope="col">Tel</th>
             </tr>
         </thead>
-        @foreach($activities as $activity)
+
+        @foreach($adherents as $adherent)
             <tr>
-                <th scope="row">{{ $loop->index +1 }}</th>
-                <td>{{ $activity['intitule'] }}
-                </td>
-                <td>{{ $activity['date'] }} </td>
-                <td>{{ $activity['description'] }}</td>
+                <td> {{$loop->index +1}}</td>
+                <td> {{$adherent->family_name}}</td>
+                <td> {{$adherent->first_name}}</td>
+                <td> {{$adherent->tel}}</td>
             </tr>
         @endforeach
         </table>

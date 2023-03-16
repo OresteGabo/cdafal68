@@ -15,7 +15,6 @@ class CreateIncomeTypeTable extends Migration
     {
         Schema::create('income_type', function (Blueprint $table) {
             $table->id();
-            $table->string('value');
             $table->string('label');
         });
     }

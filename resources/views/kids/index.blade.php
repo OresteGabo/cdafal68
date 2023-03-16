@@ -1,29 +1,27 @@
 @extends('layouts.layout')
-@section('content')
-    <p>This is adherents index</p>
-@endsection
+
 
 @section('quick_links')
     <div class="overview">
         @include('layouts.heading.content_title',['icon'=>'uil uil-tachometer-fast-alt','label'=>'Liens rapide'])
 
         <div class="boxes">
-            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-user','label'=>'----','data'=>''])
-            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-user-plus','label'=>'Ajouter','data'=>''])
+            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-kid','label'=>count($kids) ,'data'=>''])
+            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-plus-circle','label'=>'Ajouter','data'=>''])
             @include('layouts.heading.box',['box_number'=>'3','icon'=>'uil uil-external-link-alt','label'=>'Autre actions','data'=>''])
         </div>
     </div>
 @endsection
 
-@section('more_data')
+@section('content')
     <div class="activity">
-        @include('layouts.heading.content_title',['icon'=>'uil uil-user','label'=>'Liste des adhérents'])
+        @include('layouts.heading.content_title',['icon'=>'uil uil-user','label'=>'Liste des enfants'])
 
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">intituléss
+                <th scope="col">Nom
                     <!--<label>
                         <input type="radio" id="last" name="Ppub" value="last"> intitule
                     </label>-->
@@ -37,10 +35,23 @@
 
                     <!--<button></button>-->
                 </th>
-                <th scope="col">date<button><i class="uil uil-sort"></i></button></th>
-                <th scope="col">description</th>
+                <th scope="col">Prénom<button><i class="uil uil-sort"></i></button></th>
+                <th scope="col">Date de naissance</th>
+                <th scope="col">Est handicapé</th>
+                <th scope="col">Tel parent</th>
             </tr>
             </thead>
+            @foreach($kids as $kid)
+                <tr>
+                    <th scope="row">{{ $loop->index +1 }}</th>
+                    <td>{{ $kid['first_name'] }}
+                    </td>
+                    <td>{{ $kid['first_name'] }} </td>
+                    <td>{{ $kid['dob'] }}</td>
+                    <td>{{ $kid['is_handicapped']==True? 'Oui' :'Non'}}</td>
+                    <td>{{ $kid['parent_id'] }}</td>
+                </tr>
+            @endforeach
 
         </table>
 

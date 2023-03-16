@@ -13,7 +13,7 @@ class CreateFormateurTable extends Migration
      */
     public function up()
     {
-        Schema::create('formateur', function (Blueprint $table) {
+        Schema::create('formateurs', function (Blueprint $table) {
             $table->id();
             $table->string('family_name');
             $table->string('first_name');

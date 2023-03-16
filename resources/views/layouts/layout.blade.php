@@ -42,8 +42,8 @@
     <div class="flex menu-items">
         <ul class="">
             @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-estate','label'=>"Dashboard"])
-            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-database','label'=>"BDD"])
-            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-bell','label'=>"Notifications"])
+            @include('layouts.mainnav.link_li',['url'=>route("adherent.index"),'icon'=>'uil uil-database','label'=>"BDD"])
+            @include('layouts.mainnav.link_li',['url'=>route("adherent.create"),'icon'=>'uil uil-bell','label'=>"Notifications"])
             @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-constructor','label'=>"Activités"])
             @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-image','label'=>"Media"])
         </ul>
@@ -78,7 +78,7 @@
 
     <div class="dash-content">
         @yield('quick_links')
-        @yield('more_data')
+        @yield('content')
     </div>
 </section>
 <script type="text/javascript" src="script.js"></script>

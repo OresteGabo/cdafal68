@@ -16,7 +16,7 @@ class CreateAdherentTable extends Migration
      */
     public function up()
     {
-        Schema::create('adherent', function (Blueprint $table) {
+        Schema::create('adherents', function (Blueprint $table) {
             $table->id();
 
             /**
@@ -32,12 +32,8 @@ class CreateAdherentTable extends Migration
             /**
              * Civilité
              */
-            $table->enum('gender',
-                array(
-                    'male',
-                    'female'
-                )
-            );
+            $table->unsignedBigInteger('gender_id');
+            $table->foreign('gender_id')->references('id')->on('gender')->onDelete('cascade');
 
             /**
              * Date de naissance
@@ -139,8 +135,6 @@ class CreateAdherentTable extends Migration
              * CIR(contrat d'integration républiquain)
              */
             $table->boolean('CIR');
-
-
 
         });
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLegalSituationTable extends Migration
+class CreateMaritalStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateLegalSituationTable extends Migration
      */
     public function up()
     {
-        Schema::create('legal_situation', function (Blueprint $table) {
-            $table->id();
+        Schema::create('marital_status', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('label');
         });
     }
@@ -26,6 +26,6 @@ class CreateLegalSituationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('legal_situation');
+        Schema::dropIfExists('marital_status');
     }
 }

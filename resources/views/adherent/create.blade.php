@@ -12,7 +12,9 @@
                 <form method="POST" action="{{route('adherent.store')}}">
                     @csrf
 
-                    @include('layouts.formcontrols.select',['name'=>'gender','label'=>'Civilité','required'=>'required','data_array'=>$genders])
+                    @include('layouts.formcontrols.select',['name'=>'gender_id','label'=>'Civilité','required'=>'required','data_array'=>$genders])
+                    @include('layouts.formcontrols.input',['value'=>'2','name'=>'new_gender_id','label'=>'New Gender','required'=>'required','type'=>'number'])
+
                     @include('layouts.formcontrols.input',['value'=>'oreste','name'=>'family_name','label'=>'Nom de famille','required'=>'required','type'=>'text'])
                     @include('layouts.formcontrols.input',['value'=>'muhirwa','name'=>'first_name','label'=>'Prénom','required'=>'required','type'=>'text'])
                     @include('layouts.formcontrols.input',['value'=>'1995-06-25','name'=>'date_of_birth','label'=>'date_of_birth','required'=>'required','type'=>'date'])

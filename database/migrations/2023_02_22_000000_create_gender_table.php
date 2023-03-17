@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStudyLevelTable extends Migration
+class CreateGenderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateStudyLevelTable extends Migration
      */
     public function up()
     {
-        Schema::create('study_levels', function (Blueprint $table) {
-            $table->id();
+        Schema::create('genders', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('label');
         });
     }
@@ -26,6 +26,6 @@ class CreateStudyLevelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('study_level');
+        Schema::dropIfExists('gender');
     }
 }

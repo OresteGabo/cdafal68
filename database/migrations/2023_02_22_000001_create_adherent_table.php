@@ -17,8 +17,8 @@ class CreateAdherentTable extends Migration
     public function up()
     {
         Schema::create('adherents', function (Blueprint $table) {
-            $table->id();
-
+            $table->bigIncrements('id');
+$table->timestamps();
             /**
              * Nom de famille
              */
@@ -33,7 +33,7 @@ class CreateAdherentTable extends Migration
              * Civilité
              */
             $table->unsignedBigInteger('gender_id');
-            $table->foreign('gender_id')->references('id')->on('gender')->onDelete('cascade');
+            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
 
             /**
              * Date de naissance
@@ -44,7 +44,7 @@ class CreateAdherentTable extends Migration
              * Tranche d'âge
              */
             $table->unsignedBigInteger('age_gap_id');
-            $table->foreign('age_gap_id')->references('id')->on('age_gap')->onDelete('cascade');
+            $table->foreign('age_gap_id')->references('id')->on('age_gaps')->onDelete('cascade');
 
 
 
@@ -57,7 +57,7 @@ class CreateAdherentTable extends Migration
              * Code postale (trouvé dans base de table des codes postaux
              */
             $table->unsignedBigInteger('postal_code_id');
-            $table->foreign('postal_code_id')->references('id')->on('postal_code')->onDelete('cascade');
+            $table->foreign('postal_code_id')->references('id')->on('postal_codes')->onDelete('cascade');
 
             /**
              * QPV (Quartier politique de la ville)

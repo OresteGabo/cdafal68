@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaritalStatusTable extends Migration
+class CreateStudyLevelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateMaritalStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('marital_status', function (Blueprint $table) {
-            $table->id();
+        Schema::create('study_levels', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('label');
         });
     }
@@ -26,6 +26,6 @@ class CreateMaritalStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marital_status');
+        Schema::dropIfExists('study_level');
     }
 }

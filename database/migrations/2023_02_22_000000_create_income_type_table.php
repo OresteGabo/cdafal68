@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgeGapTable extends Migration
+class CreateIncomeTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateAgeGapTable extends Migration
      */
     public function up()
     {
-        Schema::create('age_gap', function (Blueprint $table) {
-            $table->id();
+        Schema::create('income_type', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('label');
         });
     }
@@ -26,6 +26,6 @@ class CreateAgeGapTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('age_gap');
+        Schema::dropIfExists('income_type');
     }
 }

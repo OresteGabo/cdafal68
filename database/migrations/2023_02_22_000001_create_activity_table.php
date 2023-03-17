@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEducationLevelTable extends Migration
+class CreateActivityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateEducationLevelTable extends Migration
      */
     public function up()
     {
-        Schema::create('education_level', function (Blueprint $table) {
-            $table->id();
+        Schema::create('activities', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('label');
+
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateEducationLevelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('education_level');
+        Schema::dropIfExists('activity');
     }
 }

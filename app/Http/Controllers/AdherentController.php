@@ -60,20 +60,21 @@ class AdherentController extends Controller
     public function create(){
 
 
-        $marital_statuses= DB::table('marital_status')->get();
+
 
 
         $income_types=DB::table('income_type')->get();
 
         ///TODO Replace this data with database data
-        $age_gaps=DB::table('age_gap')->get();
+        $age_gaps=DB::table('age_gaps')->get();
 
-        $genders=DB::table('gender')->get();
+        $genders=DB::table('genders')->get();
 
         $education_levels=DB::table('education_level')->get();
 
         $legal_situations=DB::table('legal_situation')->get();
         $countries=DB::table('country')->get();
+        $marital_statuses= DB::table('marital_status')->get();
 
 
         return view('adherent.create',
@@ -110,14 +111,14 @@ class AdherentController extends Controller
         $adherent->family_name=$request->input('family_name');
         $adherent->first_name=$request->input('first_name');
         $adherent->french_entry_date=$request->input('french_entry_date');
-        $adherent->gender=$request->input('gender');
+        $adherent->gender_id=1;/*$request->input('gender_id');*/
+        $adherent->gender_id=$request->input('gender_id');
         $adherent->income_type_id=$request->input('income_type_id');
         $adherent->legal_situation_id=$request->input('legal_situation_id');
         $adherent->marital_status_id=$request->input('marital_status_id');
         $adherent->place_of_birth=$request->input('place_of_birth');
         $adherent->postal_code_id=$request->input('postal_code_id');
         $adherent->QPV=False;
-        $adherent->gender='1';
         $adherent->registration_date=$request->input('registration_date');
         $adherent->tel=$request->input('tel');
         $adherent->age_gap_id=$request->input('age_gap_id');

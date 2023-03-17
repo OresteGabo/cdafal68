@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIncomeTypeTable extends Migration
+class CreateCountryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateIncomeTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('income_type', function (Blueprint $table) {
-            $table->id();
+        Schema::create('country', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('label');
+            $table->string('phonecode');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateIncomeTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('income_type');
+        Schema::dropIfExists('country');
     }
 }

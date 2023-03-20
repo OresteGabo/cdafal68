@@ -15,9 +15,8 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('postal_code_id');
-            $table->foreign('postal_code_id')->references('id')->on('postal_codes')->onDelete('cascade');
-            $table->string('name');
+            $table->string('cp');
+            $table->string('label');
         });
     }
 

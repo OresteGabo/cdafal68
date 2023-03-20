@@ -54,10 +54,10 @@ $table->timestamps();
             $table->string('address');
 
             /**
-             * Code postale (trouvé dans base de table des codes postaux
+             * Code postale (trouvé dans base de table des codes postaux ville
              */
-            $table->unsignedBigInteger('postal_code_id');
-            $table->foreign('postal_code_id')->references('id')->on('postal_codes')->onDelete('cascade');
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
 
             /**
              * QPV (Quartier politique de la ville)

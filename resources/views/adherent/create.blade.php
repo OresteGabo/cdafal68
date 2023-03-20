@@ -13,13 +13,13 @@
                     @csrf
 
                     @include('layouts.formcontrols.select',['name'=>'gender_id','label'=>'Civilité','required'=>'required','data_array'=>$genders])
-                    @include('layouts.formcontrols.input',['value'=>'2','name'=>'new_gender_id','label'=>'New Gender','required'=>'required','type'=>'number'])
 
                     @include('layouts.formcontrols.input',['value'=>'oreste','name'=>'family_name','label'=>'Nom de famille','required'=>'required','type'=>'text'])
                     @include('layouts.formcontrols.input',['value'=>'muhirwa','name'=>'first_name','label'=>'Prénom','required'=>'required','type'=>'text'])
                     @include('layouts.formcontrols.input',['value'=>'1995-06-25','name'=>'date_of_birth','label'=>'date_of_birth','required'=>'required','type'=>'date'])
 
-                    @include('layouts.formcontrols.input',['value'=>'1','name'=>'postal_code_id','label'=>'Code postale','required'=>'required','type'=>'text'])
+                    @include('layouts.formcontrols.select',['name'=>'city_id','label'=>'Ville - CP','required'=>'required','data_array'=>$cities])
+
                     @include('layouts.formcontrols.input',['value'=>'0769876775','name'=>'tel','label'=>'Téléphone','required'=>'required','type'=>'tel'])
                     @include('layouts.formcontrols.input',['value'=>'oreste@gabo.fr','name'=>'email','label'=>'Email','required'=>'required','type'=>'email'])
                     @include('layouts.formcontrols.input',['value'=>'11 rue kellermann','name'=>'address','label'=>'Adresse','required'=>'required','type'=>'text'])

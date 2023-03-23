@@ -72,7 +72,7 @@ class AdherentController extends Controller
 
         $adherent->CIR=True;
         $adherent->citizenship=$request->input('citizenship');
-        $adherent->date_of_birth=$request->input('date_of_birth');
+        $adherent->dob=$request->input('dob');
         $adherent->education_level_id=$request->input('education_level_id');
         $adherent->email=$request->input('email');
         $adherent->exit_date=$request->input('exit_date');

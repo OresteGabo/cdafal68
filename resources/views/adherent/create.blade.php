@@ -16,7 +16,7 @@
 
                     @include('layouts.formcontrols.input',['value'=>'oreste','name'=>'family_name','label'=>'Nom de famille','required'=>'required','type'=>'text'])
                     @include('layouts.formcontrols.input',['value'=>'muhirwa','name'=>'first_name','label'=>'Prénom','required'=>'required','type'=>'text'])
-                    @include('layouts.formcontrols.input',['value'=>'1995-06-25','name'=>'date_of_birth','label'=>'date_of_birth','required'=>'required','type'=>'date'])
+                    @include('layouts.formcontrols.input',['value'=>'1995-06-25','name'=>'dob','label'=>'dob','required'=>'required','type'=>'date'])
 
                     @include('layouts.formcontrols.select',['name'=>'city_id','label'=>'Ville - CP','required'=>'required','data_array'=>$cities])
 

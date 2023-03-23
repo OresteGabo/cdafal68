@@ -28,6 +28,7 @@ Route::get('/login', function () {
 
 Route::resource('adherent',AdherentController::class);
 Route::resource('home',HomeController::class);
+Route::resource('kids',KidsController::class);
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -35,6 +36,6 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.
 Route::get('login',[AuthController::class, 'index'])->name('');
 Route::get('signup',[AuthController::class, 'signup']);
 Route::get('agegap',[AgeGapController::class, 'index']);
-Route::get('kids',[KidsController::class, 'index'])->name('kids.index');
+/* Route::get('kids',[KidsController::class, 'index'])->name('kids.index');
 Route::get('kids/create',[KidsController::class, 'create'])->name('kids.create');
-Route::get('kids/{id}',[KidsController::class, 'show'])->name('kids.show');
+Route::get('kids/{id}',[KidsController::class, 'show'])->name('kids.show');*/

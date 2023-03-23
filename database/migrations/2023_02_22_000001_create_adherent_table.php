@@ -17,8 +17,8 @@ class CreateAdherentTable extends Migration
     public function up()
     {
         Schema::create('adherents', function (Blueprint $table) {
-            $table->bigIncrements('id');
-$table->timestamps();
+            $table->id();
+            $table->timestamps();
             /**
              * Nom de famille
              */
@@ -38,7 +38,7 @@ $table->timestamps();
             /**
              * Date de naissance
              */
-            $table->date('date_of_birth');
+            $table->date('dob');
 
             /**
              * Tranche d'âge

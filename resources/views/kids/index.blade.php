@@ -3,12 +3,12 @@
 
 @section('quick_links')
     <div class="overview">
-        @include('layouts.heading.content_title',['icon'=>'uil uil-tachometer-fast-alt','label'=>'Liens rapide'])
+        @include('layouts.heading.content_title',['icon'=>'uil uil-tachometer-fast-alt','label'=>'Liens rapide (Enfants)'])
 
         <div class="boxes">
-            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-kid','label'=>count($kids) ,'data'=>''])
+            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-kid','label'=>count($kids) .' enfants','data'=>''])
             @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-plus-circle','label'=>'Ajouter','data'=>''])
-            @include('layouts.heading.box',['box_number'=>'3','icon'=>'uil uil-external-link-alt','label'=>'Autre actions','data'=>''])
+            @include('layouts.heading.box',['box_number'=>'3','icon'=>'uil uil-external-link-alt','label'=>'Autre operations','data'=>''])
         </div>
     </div>
 @endsection
@@ -44,12 +44,12 @@
             @foreach($kids as $kid)
                 <tr>
                     <th scope="row">{{ $loop->index +1 }}</th>
-                    <td>{{ $kid['first_name'] }}
+                    <td>{{ $kid->first_name}}
                     </td>
-                    <td>{{ $kid['first_name'] }} </td>
-                    <td>{{ $kid['dob'] }}</td>
-                    <td>{{ $kid['is_handicapped']==True? 'Oui' :'Non'}}</td>
-                    <td>{{ $kid['parent_id'] }}</td>
+                    <td>{{ $kid->first_name }} </td>
+                    <td>{{ $kid->dob}}</td>
+                    <td>{{ $kid->is_handicapped ? 'Oui' :'Non'}}</td>
+                    <td>{{ $kid->parent_id }}</td>
                 </tr>
             @endforeach
 

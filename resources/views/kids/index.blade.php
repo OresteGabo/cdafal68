@@ -44,7 +44,7 @@
             @foreach($kids as $kid)
                 <tr>
                     <th scope="row">{{ $loop->index +1 }}</th>
-                    <td>{{ $kid->first_name}}
+                    <td>{{ $kid->family_name}}
                     </td>
                     <td>{{ $kid->first_name }} </td>
                     <td>{{ $kid->dob}}</td>

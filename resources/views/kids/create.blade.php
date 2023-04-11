@@ -22,9 +22,8 @@
                         <label for="parent_id">Parent Name:</label>
                         <select id="parent_id" name="parent_id" class="form-control">
                             <option value="">Select Parent</option>
-                            @foreach ($parents as $parent) {
+                            @foreach ($parents as $parent)
                                 <option value="{{ $parent->id }}">{{ $parent->gender_id==1?'Mr':'Mme' }}. {{ ucfirst($parent->first_name) }} {{ strtoupper($parent->family_name) }}</option>
-                            }
                             @endforeach
                         </select>
                     </div>
@@ -32,6 +31,7 @@
                     <div class="mb-3 text-center">
                         <button type="submit" class="btn btn-primary">Créer enfant</button>
                     </div>
+
                 </form>
 
             </div>

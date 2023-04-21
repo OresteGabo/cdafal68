@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AgeGap extends Model
+class Teacher extends Model
 {
-    protected $table='age_gaps';
     use HasFactory;
 }

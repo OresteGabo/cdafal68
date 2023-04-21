@@ -37,22 +37,31 @@ class KidsController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+
      */
     public function store(Request $request)
     {
+
         $kid =new Kid();
 
         $kid->first_name=$request->input('first_name');
-        $kid->is_handicapped=(bool)$request->input('ishandicapped');
+
+        $kid->is_handicapped=(bool)$request->input('is_handicapped');
         $kid->family_name=$request->input('family_name');
         $kid->gender_id=$request->input('gender_id');
         $kid->parent_id=$request->input('parent_id');
         $kid->dob=$request->input('dob');
         $kid->save();
         return redirect()->route('kids.index');
+
+/*
+        $kid = Kid::create([
+            'first_name' => $request->input('first_name'),
+            'family_name' => $request->input('family_name'),
+            'dob' => $request->input('dob'),
+            'gender_id' => $request->input('gender_id'),
+            'parent_id' => $request->input('parent_id'),
+        ]);*/
 
     }
 

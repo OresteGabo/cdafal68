@@ -7,7 +7,7 @@
 
         <div class="boxes">
             @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-kid','label'=>count($kids) .' enfants','data'=>''])
-            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-plus-circle','label'=>'Ajouter','data'=>''])
+            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-plus-circle','label'=>'Ajouter','data'=>'','url'=>route('kids.create')])
             @include('layouts.heading.box',['box_number'=>'3','icon'=>'uil uil-external-link-alt','label'=>'Autre operations','data'=>''])
         </div>
     </div>

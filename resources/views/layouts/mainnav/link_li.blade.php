@@ -1,6 +1,6 @@
 <li>
-    <a href="{{$url}}">
-        <i class="{{$icon}}"></i>
+    <a href="{{$url}}" class="{{str_contains('/'.request()->path(),$url)? 'active':''}}" aria-label="">
+        <span class="material-symbols-outlined">{{$icon}}</span>
         <span class="link-name">{{$label}}</span>
     </a>
 </li>

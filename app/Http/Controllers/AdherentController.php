@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Adherent;
+use App\Models\AgeGap;
+use App\Models\Kid;
+
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +25,10 @@ class AdherentController extends Controller
     public function index()
     {
 
-        $adherents = DB::table('adherents')->get();
+        //$adherents = DB::table('adherents')->get();
+        ///TODO To create a select list that help us to sort either by name, inscription date, ...
+        $adherents=Adherent::orderBy('family_name')->get();
+
         //$adherents=Adherent::all();
         return view('adherent.index',['adherents'=>$adherents]);
     }
@@ -35,7 +41,7 @@ class AdherentController extends Controller
     public function create(){
 
         $income_types=DB::table('income_type')->get();
-        $age_gaps=DB::table('age_gaps')->get();
+        $age_gaps=AgeGap::all();
         $genders=DB::table('genders')->get();
         $education_levels=DB::table('education_level')->get();
         $legal_situations=DB::table('legal_situation')->get();
@@ -107,12 +113,13 @@ class AdherentController extends Controller
     public function show($id)
     {
         //
-        $adherents=DB::table('adherent')->get();
-        var_dump($adherents);
-        $index= array_search($id,array_column((array)$adherents,'id'));
-        if($index===false){
+        $adherents = Adherent::all();
+        $vaa= Adherent::where('id',$id);
+        //var_dump($adherents);
+        //$index= array_search($id,array_column((array)$adherents,'id'));
+        /*if($index===false){
             abort(404);
-        }
+        }*/
 
         return view('adherent.show',['adherent'=>$adherents[$id]]);
     }

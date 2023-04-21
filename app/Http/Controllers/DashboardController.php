@@ -14,6 +14,8 @@ class DashboardController extends Controller
         return $random_Date;
     }
     public function index(){
+        $adherents = DB::table('adherents')->get();
+        $kids = DB::table('kids')->get();
         /*
         $activities = DB::table('activity')->get();*/
         $activities=[
@@ -27,6 +29,6 @@ class DashboardController extends Controller
             ['intitule'=>'Adhérent','date'=>$this->randomDate(),'description'=>'Enregistrement d\'un enfant'],
             ['intitule'=>'Adhérent','date'=>$this->randomDate(),'description'=>'MAJ des information d\'un enfant']
         ];
-        return view('dashboard.index',['activities'=>$activities]);
+        return view('dashboard.index',['activities'=>$activities,'adherents'=>$adherents,'kids'=>$kids]);
     }
 }

@@ -5,8 +5,8 @@
         @include('layouts.heading.content_title',['icon'=>'uil uil-tachometer-fast-alt','label'=>'Liens rapide'])
 
         <div class="boxes">
-            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-database','label'=>'Adhérents','data'=>'268'])
-            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-kid','label'=>'Enfants','data'=>'10'])
+            @include('layouts.heading.box',['box_number'=>'1','icon'=>'uil uil-database','label'=>'Adhérents','data'=>count($adherents)])
+            @include('layouts.heading.box',['box_number'=>'2','icon'=>'uil uil-kid','label'=>'Enfants','data'=>count($kids)])
             @include('layouts.heading.box',['box_number'=>'3','icon'=>'uil uil-database','label'=>'Adhérents','data'=>'268'])
         </div>
     </div>

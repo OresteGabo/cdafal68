@@ -18,7 +18,7 @@
 <code>php artisan serve</code> which will generate a link to be opened in a navigator
 
 #### How to create a controller
-<code>php artisan make:controller AdherentController</code> for Adherent Controller
+<code>php artisan make:controller AdherentController -r</code> for Adherent Controller with all functions (bcz of <code>-r</code> or <code>--resource</code>)
 
 #### How to create a migration table
 <code>php artisan make:migration create_adherent_table</code> for Adherent migration.
@@ -99,3 +99,14 @@ Si vous n'avez pas envie de lire, [Laracasts](https://laracasts.com) peut vous a
 
 L'application Cdafal n'est pas ouvert au public, le code source est confidentiel sous la licence GNU General Public License (GPL)
 # cdafal68
+
+
+## Errors that occurs most often
+
+<code>
+SQLSTATE[HY000]: General error: 1364 Field 'is_handicapped' doesn't have a default value (SQL: insert into `kids` (`updated_at`, `created_at`) values (2023-04-11 09:02:10, 2023-04-11 09:02:10)) 
+</code>
+
+## How it was solved
+
+I had to delete all the properties in Kids model

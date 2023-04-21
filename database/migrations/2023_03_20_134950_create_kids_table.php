@@ -15,7 +15,7 @@ class CreateKidsTable extends Migration
     {
         Schema::create('kids', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
             $table->string('family_name');
             $table->string('first_name');
             $table->date('dob');

@@ -8,7 +8,7 @@
 
     <!----======== CSS ======== -->
     <!--<link rel="stylesheet" href="resources/css/style.css">-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">-->
 
      <link rel="stylesheet" href="/styles/sidenav.css">
      <!--<link rel="stylesheet" href="styles/form.css">-->
@@ -19,11 +19,21 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
     <!----===== Search for Iconscout icons CSS link
     https://iconscout.com/unicons/explore/line
   ===== -->
 
     <!--<title>Admin Dashboard Panel</title>-->
+    <?php
+
+    use App\phpfiles\Nav;
+
+
+    ?>
 
 </head>
 <body>
@@ -39,27 +49,37 @@
 
     <!--<div class="menu-items">-->
         <!--<div class="float-left">-->
-    <div class="flex menu-items">
-        <ul class="">
-            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-estate','label'=>"Dashboard"])
-            @include('layouts.mainnav.link_li',['url'=>route("adherent.index"),'icon'=>'uil uil-database','label'=>"BDD"])
-            @include('layouts.mainnav.link_li',['url'=>route("adherent.create"),'icon'=>'uil uil-bell','label'=>"Notifications"])
-            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-constructor','label'=>"Activités"])
-            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-image','label'=>"Media"])
-        </ul>
-        <ul class="logout-mode">
-            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-setting','label'=>"Paramètres"])
-            @include('layouts.mainnav.link_li',['url'=>'/dashboard','icon'=>'uil uil-signout','label'=>"Déconnection"])
-            <li class="mode">
-                <a href="#">
-                    <i class="uil uil-moon"></i>
-                    <span class="link-name">Dark Mode</span>
-                </a>
 
-                <div class="mode-toggle">
-                    <span class="switch"></span>
-                </div>
-            </li>
+    <div class="flex menu-items">
+
+        <?php
+        $activeIndex = 1;
+        $nav=new Nav($activeIndex);
+        /*$nav->set_activeIndex(2);*/
+        /*$nav = app()->makeWith(Nav::class,
+            ['$activeIndex' => 3]);*/
+        ?>
+        <ul>
+            @foreach ($nav->getNav1() as $mainNavItem)
+                @include(
+                        'layouts.mainnav.link_li',['url'=>'/'.$mainNavItem['url'],
+                        'icon'=>$mainNavItem['icon'],
+                        'label'=>$mainNavItem['label'],
+                        'active'=>request()->path()==$mainNavItem['url'] ? 'active':'']
+                )
+            @endforeach
+        </ul>
+
+        <ul class="logout-mode">
+            @foreach ($nav->getNav2() as $mainNavItem)
+                @include(
+                        'layouts.mainnav.link_li',['url'=>'/'.$mainNavItem['url'],
+                        'icon'=>$mainNavItem['icon'],
+                        'label'=>$mainNavItem['label'],
+                        'active'=>request()->path()==$mainNavItem['url'] ? 'active':'']
+                )
+            @endforeach
+
         </ul>
     </div>
 </nav>

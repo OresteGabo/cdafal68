@@ -1,4 +1,13 @@
 
+
+
+
+
+
+
+
+
+/*
 nav.sidenav{
     position:fixed;
     top:0;
@@ -9,20 +18,19 @@ nav.sidenav{
     background-color: var(--panel-color);
     border-right: 1px solid var(--border-color);
     transition: var(--tran-05);
-}
-
-
-
+}*/
 nav.sidenav .menu-items{
+    /*margin-top: 40px;*/
     height: calc(100% - 90px);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 nav.sidenav .logo-image img{
     width: 50px;
     object-fit: cover;
+    /*border-radius: 50%;*/
     background: #2d3748;
 }
 
@@ -74,7 +82,6 @@ nav.sidenav .menu-items{
     flex-direction: column;
     justify-content: space-between;
 }
-
 .menu-items li{
     list-style: none;
 }
@@ -85,50 +92,25 @@ nav.sidenav .menu-items{
 
     text-decoration: none;
     position: relative;
-    transition: var(--tran-05);
 }
-.menu-items li a:hover{
-    background: var(--primary-color);
-    border-bottom: 1px solid green;
-}
-.menu-items li a.active{
-    background: var(--primary-color);
-    border-bottom: 1px solid green;
-}
-.menu-items li a:hover span{
-    color:white;
-}
-
-.menu-items li a.active span{
-    color:white;
-}
-
-.menu-items li a:hover:before{
+.nav-links li a:hover:before{
     content: "";
     position: absolute;
     /*Design of a small dot that appear on hover**/
-    /*left: -7px;*/
-    height: 100%;
-    width: 3px;
-    /*border-radius: 50%;*/
+    left: -7px;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
     background-color: var(--primary-color);
 
 }
-.menu-items li a.active:before{
-    content: "";
-    position: absolute;
-    /*Design of a small dot that appear on hover**/
-    /*left: -7px;*/
-    height: 100%;
-    width: 3px;
-    /*border-radius: 50%;*/
-    background-color: var(--primary-color);
-
-}
-body.dark li a:hover:before .active{
+body.dark li a:hover:before{
     background-color: var(--text-color);
+
+
 }
-.menu-items li a span{
+
+.menu-items li a i{
     font-size: 24px;
     min-width: 45px;
     height: 100%;
@@ -148,11 +130,11 @@ nav.close li a .link-name{
     opacity: 0;
     pointer-events: none;
 }
-.nav-links li a:hover span,
+.nav-links li a:hover i,
 .nav-links li a:hover .link-name{
     color: var(--primary-color);
 }
-body.dark .nav-links li a:hover span,
+body.dark .nav-links li a:hover i,
 body.dark .nav-links li a:hover .link-name{
     color: var(--text-color);
 }
@@ -160,7 +142,6 @@ body.dark .nav-links li a:hover .link-name{
     padding-top: 10px;
     border-top: 1px solid var(--border-color);
 }
-
 .menu-items .mode{
     display: flex;
     align-items: center;

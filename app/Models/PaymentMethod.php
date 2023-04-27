@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class PaymentMethod extends Model
 {
     use HasFactory;
+    protected $table='payment_methods';
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }

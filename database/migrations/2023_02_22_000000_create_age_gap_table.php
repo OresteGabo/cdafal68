@@ -14,7 +14,7 @@ class CreateAgeGapTable extends Migration
     public function up()
     {
         Schema::create('age_gaps', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('label');
         });
     }

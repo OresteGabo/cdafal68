@@ -54,7 +54,7 @@ class Nav
     {
         return [
             ['url' => 'formations', 'icon' => 'school', 'label' => "Sites des formations", 'active' => $this->activeIndex == 7 ? 'active' : $this->activeIndex],
-            ['url' => 'settings', 'icon' => 'settings', 'label' => "Parametres", 'active' => $this->activeIndex == 8 ? 'active' : $this->activeIndex],
+            ['url' => 'setting', 'icon' => 'settings', 'label' => "Parametres", 'active' => $this->activeIndex == 8 ? 'active' : $this->activeIndex],
             ['url' => 'logout', 'icon' => 'logout', 'label' => "Déconnection", 'active' => $this->activeIndex == 9 ? 'active' : $this->activeIndex]
         ];
     }

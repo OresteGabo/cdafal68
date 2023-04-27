@@ -50,7 +50,7 @@ body.dark{
 body.dark .switch:before{
     left: 20px;
 }
-
+.text-dec-u{text-decoration: underline;}
 .maincontent{
     position: relative;
     left: 250px;
@@ -449,19 +449,31 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
-button[type="submit"] {
+button[type="submit"],a.btn-primary {
     background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 10px;
     border-radius: 3px;
     cursor: pointer;
+    font-size: medium;
+    width:45%;
+
+}
+a.btn-primary{
+    text-decoration: none;
+    text-align:center;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,a.btn-primary:hover {
     background-color: #3e8e41;
 }
-
+.flex{
+    display:flex;
+}
+.space-between{
+    justify-content: space-between;
+}
 
 /*For checkbox*/
 
@@ -585,16 +597,47 @@ input[type="radio"]:checked+label{
     line-height: 26px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s, padding 0.5s;
 }
 
 .accordion input[type="radio"]:checked + label + .content{
     padding:10px 10px 20px;
     max-height:100%;
+    transition: max-height 2s, padding 0.5s;
 }
 .accordion input[type="radio"]:checked + label::before{
     content:'-';
 }
+
+form fieldset
+{
+    background: white;
+    max-width:500px;
+    padding-top:5px;
+    padding-left:25px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    border:1px solid #ccc;
+    margin-bottom: 1rem;
+}
+form fieldset legend
+{
+    margin:0 auto;
+    padding:10px 1rem;
+    border:1px solid #ddd;
+    background: white;
+    border-radius: 50px;
+}
+
+form fieldset ul li{
+    list-style-type: disc;
+}
+
+form .text-dec-u{
+    margin-top:2rem;
+    text-align: center;
+}
+
+
 
 
 

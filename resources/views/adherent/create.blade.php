@@ -9,7 +9,6 @@
 
                 <form method="POST" action="{{route('adherent.store')}}">
                     @csrf
-
                     @include('layouts.formcontrols.select',['name'=>'gender_id','label'=>'Civilité','required'=>'required','data_array'=>$genders])
                     <div class="form-group ">
                         <label for="gender">Civilité</label>
@@ -41,22 +40,14 @@
                     <div class="form-group ">
                         <label for="age_range">Age Range:</label>
                         <div class="form-check-inline">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="age_range" id="age_range_1" value="1-18" checked>
-                            <label class="form-check-label" for="age_range_1">1-18</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="age_range" id="age_range_2" value="19-35">
-                            <label class="form-check-label" for="age_range_2">19-35</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="age_range" id="age_range_3" value="36-50">
-                            <label class="form-check-label" for="age_range_3">36-50</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="age_range" id="age_range_4" value="51+">
-                            <label class="form-check-label" for="age_range_4">51+</label>
-                        </div>
+
+
+                            @foreach ($age_gaps as $age_range)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="age_range" id="age_range_{{$age_range->id}}" value="{{$age_range->id}}">
+                                    <label class="form-check-label" for="age_range_{{$age_range->id}}">{{$age_range->label}}</label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 

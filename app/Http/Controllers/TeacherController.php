@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,10 +36,13 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         //
-        $country=new Country();
-        $country->label=$request->input('country_name');
-        $country->phonecode=$request->input('country_code');
-        $country->save();
+        $newdata =new Teacher();
+        $newdata->first_name=$request->input('firstname');
+        $newdata->family_name=$request->input('familyname');
+        $newdata->personal_phone_number=$request->input('personalphone_number')??'';
+        $newdata->public_phone_number=$request->input('publicphonenumber')??'';
+        $newdata->email=$request->input('email');
+        $newdata->save();
         return redirect()->route('setting.index');
     }
 

@@ -9,7 +9,7 @@
 
 ## About CDAFAL68
 ## github token
-<code>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</code>
+<code>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</code>
 
 #### Creating a new project we use this code
 <code>composer create-project --prefer-dist laravel/laravel [project_name]</code>

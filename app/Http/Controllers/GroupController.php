@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
+use App\Models\Group;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,10 +36,9 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         //
-        $country=new Country();
-        $country->label=$request->input('country_name');
-        $country->phonecode=$request->input('country_code');
-        $country->save();
+        $group=new Group();
+        $group->label=$request->input('group');
+        $group->save();
         return redirect()->route('setting.index');
     }
 

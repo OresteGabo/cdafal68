@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
+use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class PaymentMethodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,10 +36,9 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         //
-        $country=new Country();
-        $country->label=$request->input('country_name');
-        $country->phonecode=$request->input('country_code');
-        $country->save();
+        $newdata=new PaymentMethod();
+        $newdata->label=$request->input('paymentmethod');
+        $newdata->save();
         return redirect()->route('setting.index');
     }
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
+use App\Models\AgeGap;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class CountryController extends Controller
+class AgeGapController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +16,8 @@ class CountryController extends Controller
     public function index()
     {
         //
+        $agegaps = DB::table('age_gaps')->get();
+        return view('settings.agegap.index',['agegaps'=>$agegaps]);
     }
 
     /**
@@ -36,11 +39,11 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         //
-        $country=new Country();
-        $country->label=$request->input('country_name');
-        $country->phonecode=$request->input('country_code');
-        $country->save();
+        $agegap =new AgeGap();
+        $agegap->label=$request->input('agegap');
+        $agegap->save();
         return redirect()->route('setting.index');
+
     }
 
     /**

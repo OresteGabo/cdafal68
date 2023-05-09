@@ -51,6 +51,7 @@ class StudyLevelController extends Controller
     public function show($id)
     {
         //
+        return view('settings.studylevel.show',['studylevel'=>StudyLevel::findOrFail($id)]);
     }
 
     /**
@@ -62,6 +63,7 @@ class StudyLevelController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -85,5 +87,8 @@ class StudyLevelController extends Controller
     public function destroy($id)
     {
         //
+        $data=StudyLevel::findOrFail($id);
+        $data->delete();
+        return view('settings.studylevel.index');
     }
 }

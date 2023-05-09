@@ -74,6 +74,7 @@ class KidController extends Controller
     public function show($id)
     {
         //
+        return view('kids.show',['kid'=>Kid::findOrFail($id)]);
     }
 
     /**
@@ -108,5 +109,8 @@ class KidController extends Controller
     public function destroy($id)
     {
         //
+        $data=Year::findOrFail($id);
+        $data->delete();
+        return view('kids.index');
     }
 }

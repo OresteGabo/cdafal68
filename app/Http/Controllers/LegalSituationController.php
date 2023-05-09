@@ -51,6 +51,7 @@ class LegalSituationController extends Controller
     public function show($id)
     {
         //
+        return view('settings.legalsituation.show',['legalsituation'=>LegalSituation::findOrFail($id)]);
     }
 
     /**
@@ -85,5 +86,8 @@ class LegalSituationController extends Controller
     public function destroy($id)
     {
         //
+        $data=LegalSituation::findOrFail($id);
+        $data->delete();
+        return view('settings.legalsituation.index');
     }
 }

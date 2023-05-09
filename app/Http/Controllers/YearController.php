@@ -51,6 +51,7 @@ class YearController extends Controller
     public function show($id)
     {
         //
+        return view('settings.year.show',['year'=>Year::findOrFail($id)]);
     }
 
     /**
@@ -85,5 +86,8 @@ class YearController extends Controller
     public function destroy($id)
     {
         //
+        $data=Year::findOrFail($id);
+        $data->delete();
+        return view('settings.year.index');
     }
 }

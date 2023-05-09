@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PaymentMethod;
+use App\Models\StudyLevel;
 use Illuminate\Http\Request;
 
 class PaymentMethodController extends Controller
@@ -51,6 +52,7 @@ class PaymentMethodController extends Controller
     public function show($id)
     {
         //
+        return view('settings.paymentmethod.show',['paymentmethod'=>PaymentMethod::findOrFail($id)]);
     }
 
     /**
@@ -85,5 +87,8 @@ class PaymentMethodController extends Controller
     public function destroy($id)
     {
         //
+        $data=PaymentMethod::findOrFail($id);
+        $data->delete();
+        return view('settings.paymentmethod.index');
     }
 }

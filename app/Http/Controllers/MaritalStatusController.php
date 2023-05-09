@@ -51,6 +51,7 @@ class MaritalStatusController extends Controller
     public function show($id)
     {
         //
+        return view('settings.maritalstatus.show',['maritalstatus'=>MaritalStatus::findOrFail($id)]);
     }
 
     /**
@@ -85,5 +86,8 @@ class MaritalStatusController extends Controller
     public function destroy($id)
     {
         //
+        $data=MaritalStatus::findOrFail($id);
+        $data->delete();
+        return view('settings.maritalstatus.index');
     }
 }

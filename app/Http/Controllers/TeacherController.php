@@ -55,6 +55,7 @@ class TeacherController extends Controller
     public function show($id)
     {
         //
+        return view('settings.teacher.show',['teacher'=>Teacher::findOrFail($id)]);
     }
 
     /**
@@ -89,5 +90,8 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         //
+        $data=Teacher::findOrFail($id);
+        $data->delete();
+        return view('settings.teacher.index');
     }
 }

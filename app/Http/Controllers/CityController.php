@@ -47,11 +47,12 @@ class CityController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id)
     {
         //
+        return view('settings.city.show',['city'=>City::findOrFail($id)]);
     }
 
     /**
@@ -86,5 +87,8 @@ class CityController extends Controller
     public function destroy($id)
     {
         //
+        $data=City::findOrFail($id);
+        $data->delete();
+        return view('settings.city.index');
     }
 }

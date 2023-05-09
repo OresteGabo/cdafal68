@@ -50,11 +50,12 @@ class AgeGapController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id)
     {
         //
+        return view('settings.agegap.show',['agegap'=>AgeGap::findOrFail($id)]);
     }
 
     /**
@@ -89,5 +90,8 @@ class AgeGapController extends Controller
     public function destroy($id)
     {
         //
+        $data=AgeGap::findOrFail($id);
+        $data->delete();
+        return view('settings.agegap.index');
     }
 }

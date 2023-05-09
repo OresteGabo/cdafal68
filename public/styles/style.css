@@ -376,8 +376,8 @@ table a{
     color:var(--text-color);
 }
 
-.table {
-    width: 100%;
+table.table {
+
     max-width: 100%;
     margin-bottom: 1rem;
     background-color: transparent;
@@ -637,9 +637,39 @@ form .text-dec-u{
     text-align: center;
 }
 
+.table-btn{
+    width:100%;
+    max-width: 200px;
+    margin:0;
+}
+.table-btn.delete{
+    border:1px solid red;
+    margin:0;
+    background: rgba(249,174,174,0.5) ;
 
+}
 
+.table-btn.edit{
+    border:1px solid rgb(255,204,0);
+    margin:0;
+    background: rgba(255,204,0,0.5) ;
+}
 
+.grid .kidsprofile{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+.grid .kidsprofile .card{
+    border-top:1px solid rgb(200,200,200);
+    border-left:1px solid rgb(200,200,200);
+
+    border-radius: 0.4rem;
+    min-height: 200px;
+    box-shadow: 6px 6px 10px -1px  rgba(0,0,0,0.15),
+    -6px -6px 10px -1px rgba(255,255,255,0.7);
+
+}
 
 
 

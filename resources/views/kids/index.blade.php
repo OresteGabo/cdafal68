@@ -39,6 +39,7 @@
                 <th scope="col">Date de naissance</th>
                 <th scope="col">Est handicapé</th>
                 <th scope="col">Tel parent</th>
+                <th scope="col">Plus de détails</th>
             </tr>
             </thead>
             @foreach($kids as $kid)
@@ -50,8 +51,16 @@
                     <td>{{ $kid->dob}}</td>
                     <td>{{ $kid->is_handicapped ? 'Oui' :'Non'}}</td>
                     <td>{{ $kid->parent_id }}</td>
+                    <td>
+                        <button class="table-btn">
+                            <a href="/kids/{{$kid->id}}">
+                                <span class="material-symbols-outlined">info</span>
+                            </a>
+                        </button>
+                    </td>
                 </tr>
             @endforeach
+
 
         </table>
 

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
@@ -12,7 +13,7 @@ use App\Http\Controllers\MaritalStatusController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\StudyLevelController;
 use App\Http\Controllers\TeacherController;
-use Illuminate\Support\Facades\Route;
+/*use Illuminate\Support\Facades\Route;*/
 use App\Http\Controllers\AdherentController;
 use App\Http\Controllers\YearController;
 use App\Http\Controllers\SettingController;
@@ -31,14 +32,17 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', function () {
-    return view('login');
-});
-*/
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::resource('adherent',AdherentController::class);
 Route::resource('home',HomeController::class);
 Route::resource('kids',KidController::class);
@@ -61,13 +65,3 @@ Route::resource('studylevel',StudyLevelController::class);
     return view('settings.agegap.index');
 });*/
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-
-/*
-Route::get('login',[AuthController::class, 'index'])->name('');
-Route::get('signup',[AuthController::class, 'signup']);
-Route::get('agegap',[AgeGapController::class, 'index']);
-Route::get('agegap',[AgeGapController::class, 'index']);
-*/
-/* Route::get('kids',[KidsController::class, 'index'])->name('kids.index');
-Route::get('kids/create',[KidsController::class, 'create'])->name('kids.create');
-Route::get('kids/{id}',[KidsController::class, 'show'])->name('kids.show');*/

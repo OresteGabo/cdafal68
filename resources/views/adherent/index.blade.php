@@ -25,6 +25,7 @@
                 </th>
                 <th scope="col">Prénom<button><i class="uil uil-sort"></i></button></th>
                 <th scope="col">Tel</th>
+                <th>PLus de détails</th>
             </tr>
         </thead>
 
@@ -34,6 +35,13 @@
                 <td> {{$adherent->family_name}}</td>
                 <td> {{$adherent->first_name}}</td>
                 <td> {{$adherent->tel}}</td>
+                <td>
+                    <a href="/adherent/{{$adherent->id}}">
+                        <button class="table-btn">
+                            <span class="material-symbols-outlined">info</span>
+                        </button>
+                    </a>
+                </td>
             </tr>
         @endforeach
         </table>

@@ -51,6 +51,7 @@ class IncomeTypeController extends Controller
     public function show($id)
     {
         //
+        return view('settings.incometype.show',['incometype'=>IncomeType::findOrFail($id)]);
     }
 
     /**
@@ -85,5 +86,8 @@ class IncomeTypeController extends Controller
     public function destroy($id)
     {
         //
+        $data=IncomeType::findOrFail($id);
+        $data->delete();
+        return view('settings.incometype.index');
     }
 }

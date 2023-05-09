@@ -46,11 +46,12 @@ class EducationLevelController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id)
     {
         //
+        return view('settings.educationlevel.show',['educationlevel'=>EducationLevel::findOrFail($id)]);
     }
 
     /**
@@ -85,5 +86,8 @@ class EducationLevelController extends Controller
     public function destroy($id)
     {
         //
+        $data=EducationLevel::findOrFail($id);
+        $data->delete();
+        return view('settings.educationlevel.index');
     }
 }

@@ -52,6 +52,7 @@ class CountryController extends Controller
     public function show($id)
     {
         //
+        return view('settings.country.show',['country'=>Country::findOrFail($id)]);
     }
 
     /**
@@ -86,5 +87,8 @@ class CountryController extends Controller
     public function destroy($id)
     {
         //
+        $data=Country::findOrFail($id);
+        $data->delete();
+        return view('settings.country.index');
     }
 }

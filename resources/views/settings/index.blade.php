@@ -123,7 +123,7 @@
 
                     <div class="flex space-between">
                         <button type="submit" class="btn btn-primary">Ajouter</button>
-                        <a  class="btn-primary" href="#">Autre</a>
+                        <a  class="btn-primary" href="{{route('group.index')}}">Autre</a>
                     </div>
                 </form>
             </div>

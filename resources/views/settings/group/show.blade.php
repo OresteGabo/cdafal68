@@ -1,4 +1,4 @@
 @extends('layouts.layout')
 @section('content')
-    <p>This is marital status{{ $maritalstatus }} </p>
+    <p>This is group id:{{ $group }} </p>
 @endsection

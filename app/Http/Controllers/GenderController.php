@@ -51,6 +51,8 @@ class GenderController extends Controller
     public function show($id)
     {
         //
+        return view('settings.gender.show',['gender'=>Gender::findOrFail($id)]);
+
     }
 
     /**
@@ -85,5 +87,8 @@ class GenderController extends Controller
     public function destroy($id)
     {
         //
+        $data=Gender::findOrFail($id);
+        $data->delete();
+        return view('settings.gender.index');
     }
 }

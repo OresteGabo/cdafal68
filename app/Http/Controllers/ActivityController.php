@@ -55,6 +55,7 @@ class ActivityController extends Controller
     public function show($id)
     {
         //
+        return view('settings.activity.show',['activity'=>Activity::findOrFail($id)]);
     }
 
     /**
@@ -89,5 +90,8 @@ class ActivityController extends Controller
     public function destroy($id)
     {
         //
+        $data=Activity::findOrFail($id);
+        $data->delete();
+        return view('settings.activity.index');
     }
 }

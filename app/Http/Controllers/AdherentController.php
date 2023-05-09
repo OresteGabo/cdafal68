@@ -112,16 +112,7 @@ class AdherentController extends Controller
      */
     public function show($id)
     {
-        //
-        $adherents = Adherent::all();
-        $vaa= Adherent::where('id',$id);
-        //var_dump($adherents);
-        //$index= array_search($id,array_column((array)$adherents,'id'));
-        /*if($index===false){
-            abort(404);
-        }*/
-
-        return view('adherent.show',['adherent'=>$adherents[$id]]);
+        return view('adherent.show',['adherent'=>Adherent::findOrFail($id)]);
     }
 
     /**
@@ -156,6 +147,9 @@ class AdherentController extends Controller
     public function destroy($id)
     {
         //
+        $data=Adherent::findOrFail($id);
+        $data->delete();
+        return view('adherent.index');
     }
 }
 

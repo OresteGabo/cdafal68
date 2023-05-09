@@ -15,6 +15,8 @@ class GroupController extends Controller
     public function index()
     {
         //
+        $groups=Group::all();
+        return view('settings.group.index',['groups'=>$groups]);
     }
 
     /**
@@ -46,11 +48,12 @@ class GroupController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id)
     {
         //
+        return view('settings.group.show',['group'=>Group::findOrFail($id)]);
     }
 
     /**
@@ -85,5 +88,8 @@ class GroupController extends Controller
     public function destroy($id)
     {
         //
+        $group=Group::findOrFail($id);
+        $group->delete();
+        return view('settings.group.index');
     }
 }

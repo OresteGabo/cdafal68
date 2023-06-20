@@ -54,3 +54,71 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!---Coding By CoderGirl | www.codinglabweb.com--->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<title>Login & Registration Form | CoderGirl</title>-->
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+        <header>Login</header>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+
+            <input id="email" type="email" name="email"  placeholder="Votre adresse email" required autofocus>
+            <input type="password" placeholder="Le mot de passe">
+
+            @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    {{ __('Mot de passe oublié?') }}
+                </a>
+            @endif
+
+
+            <a href="#">Forgot password?</a>
+            <input type="button" class="button" value="Login">
+        </form>
+        <div class="signup">
+        <span class="signup">Don't have an account?
+         <label for="check">Signup</label>
+        </span>
+        </div>
+    </div>
+    <div class="registration form">
+        <header>Signup</header>
+        <form action="#">
+            <input type="text" placeholder="Enter your email">
+            <input type="password" placeholder="Create a password">
+            <input type="password" placeholder="Confirm your password">
+            <input type="button" class="button" value="Signup">
+        </form>
+        <div class="signup">
+        <span class="signup">Already have an account?
+         <label for="check">Login</label>
+        </span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

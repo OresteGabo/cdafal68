@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CityController;
@@ -34,7 +35,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -43,7 +44,8 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('adherent',AdherentController::class);
+
+Route::resource('adherent',AdherentController::class)->middleware(['auth']);
 Route::resource('home',HomeController::class);
 Route::resource('kids',KidController::class);
 Route::resource('agegap',AgeGapController::class);
@@ -61,7 +63,6 @@ Route::resource('setting',SettingController::class);
 Route::resource('country',CountryController::class);
 Route::resource('studylevel',StudyLevelController::class);
 
-/*Route::get('/settings/agegap/index', function () {
-    return view('settings.agegap.index');
-});*/
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+require __DIR__.'/formation.php';
+
+
